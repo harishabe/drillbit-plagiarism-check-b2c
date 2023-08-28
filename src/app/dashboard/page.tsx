@@ -1,13 +1,13 @@
 'use client'
 
-import { Box, Divider, Grid } from '@mui/material'
+import { Box, Divider, Grid, Typography } from '@mui/material'
 import { Navbar } from '@/app/components'
 import { PageView } from '@/app/dashboard/PageView/PageView'
 import '../dashboard/dashboard.scss'
 
 const Dashboard = () => {
-  const PageViewContainer = new Array(5).fill(null).map((_, index: number) => (
-    <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
+  const PageViewContainer = new Array(10).fill(null).map((_, index: number) => (
+    <Grid key={index} item xs={12} sm={6} md={4} lg={2}>
       <PageView />
     </Grid>
   ))
@@ -18,13 +18,23 @@ const Dashboard = () => {
       <div className="dashboard">
         <div className="page-container">
           <Box>
-            <Grid container item spacing={2}>
-              {PageViewContainer}
-            </Grid>
+            <Typography variant="h2">File</Typography>
+            <Divider />
+            <div className="container">
+              <Grid container item spacing={2}>
+                {PageViewContainer}
+              </Grid>
+            </div>
+            <Typography variant="h2">Folder</Typography>
+            <Divider />
+            <div className="container">
+              <Grid container item spacing={2}>
+                {PageViewContainer}
+              </Grid>
+            </div>
           </Box>
         </div>
       </div>
-      <Divider />
     </div>
   )
 }

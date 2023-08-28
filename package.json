@@ -11,6 +11,11 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "lint-staged": {
+    "*.{ts,txs,js,jsx}": "eslint --cache --fix",
+    "*.{ts,tsx}": "stylelint --fix",
+    "*.{ts,tsx,js,jsx,css,scss,md,json,html,yml}": "prettier --write"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
