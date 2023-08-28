@@ -1,0 +1,5 @@
+export { default as FormComponent } from './form/FormComponent'
+export { default as MainHeading } from './typography/MainHeading'
+export { default as Heading } from './typography/Heading'
+export { default as Navbar } from './navbar/Navbar'
+export { default as Page } from './page/Page'

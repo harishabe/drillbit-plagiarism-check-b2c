@@ -1,0 +1,29 @@
+[
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "Username *",
+    "type": "email",
+    "name": "username"
+  },
+  {
+    "id": "password",
+    "fieldType": "input",
+    "label": "Password *",
+    "type": "password",
+    "name": "password"
+  },
+  {
+    "id": "linkField",
+    "fieldType": "linkField",
+    "align": "right",
+    "path": "/auth/forgot-password",
+    "label": "Forgot Password?"
+  },
+  {
+    "id": "signInButton",
+    "fieldType": "button",
+    "label": "Sign in",
+    "type": "submit"
+  }
+]
