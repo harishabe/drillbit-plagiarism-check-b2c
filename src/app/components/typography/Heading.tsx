@@ -11,7 +11,7 @@ interface IHeading {
 
 const Heading = ({ title, color, variants = 'h1' }: IHeading) => {
   return (
-    <Typography variant={variants} color={color} component="div">
+    <Typography color={color} component="div">
       {title}
     </Typography>
   )
