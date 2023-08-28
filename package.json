@@ -16,6 +16,11 @@
     "*.{ts,tsx}": "stylelint --fix",
     "*.{ts,tsx,js,jsx,css,scss,md,json,html,yml}": "prettier --write"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
