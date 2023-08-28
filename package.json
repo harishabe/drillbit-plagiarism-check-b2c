@@ -11,17 +11,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "lint-staged": {
-    "*.{ts,txs,js,jsx}": "eslint --cache --fix",
-    "*.{ts,tsx}": "stylelint --fix",
-    "*.{ts,tsx,js,jsx,css,scss,md,json,html,yml}": "prettier --write",
-    "**/*": "echo 'Running lint-staged for: ' && echo $1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
+  "pre-commit": "next lint --fix && git add -A .",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
