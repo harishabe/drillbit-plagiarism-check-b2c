@@ -14,7 +14,8 @@
   "lint-staged": {
     "*.{ts,txs,js,jsx}": "eslint --cache --fix",
     "*.{ts,tsx}": "stylelint --fix",
-    "*.{ts,tsx,js,jsx,css,scss,md,json,html,yml}": "prettier --write"
+    "*.{ts,tsx,js,jsx,css,scss,md,json,html,yml}": "prettier --write",
+    "**/*": "echo 'Running lint-staged for: ' && echo $1"
   },
   "husky": {
     "hooks": {
