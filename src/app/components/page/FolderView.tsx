@@ -1,8 +1,8 @@
 'use client'
 
-import { Card, CardActions, CardContent, Typography } from '@mui/material'
+import { Card, CardActions, CardContent } from '@mui/material'
 import { FolderIcon } from 'public/assets'
-
+import EllipsisText from '@/app/components/ellipsis/Ellipsis'
 import './view.scss'
 
 const FolderView = () => {
@@ -10,8 +10,7 @@ const FolderView = () => {
     <Card>
       <CardContent className="fileFolderView">
         <div className="content-center">
-          <FolderIcon />
-          <Typography variant="body1">Thesis(5)</Typography>
+          <EllipsisText value="Thesis" component={<FolderIcon />} />
         </div>
       </CardContent>
       <CardActions></CardActions>

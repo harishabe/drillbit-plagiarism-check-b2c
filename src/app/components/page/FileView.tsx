@@ -1,6 +1,7 @@
 'use client'
 
-import { Card, CardActions, CardContent, Typography } from '@mui/material'
+import { Card, CardActions, CardContent } from '@mui/material'
+import EllipsisText from '@/app/components/ellipsis/Ellipsis'
 
 import './view.scss'
 
@@ -19,8 +20,10 @@ const FileView = ({ fileData }: { fileData: IFileData }) => {
     <Card>
       <CardContent className="fileFolderView">
         <div className="content-center">
-          <RenderFileImg FileLogo={fileData.FileLogo ?? ''} />
-          <Typography variant="body1">{fileData.name}</Typography>
+          <EllipsisText
+            value={fileData.name}
+            component={<RenderFileImg FileLogo={fileData.FileLogo ?? ''} />}
+          />
         </div>
       </CardContent>
       <CardActions></CardActions>

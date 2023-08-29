@@ -28,6 +28,8 @@ const drillBitTheme: IDrillBitTheme = {
       styleOverrides: {
         tooltip: {
           color: '#fff !important',
+          fontSize: '0.6875rem',
+          fontWeight: 500,
         },
       },
     },
