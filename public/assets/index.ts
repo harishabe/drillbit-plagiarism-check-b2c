@@ -1,2 +1,7 @@
 export { default as DrillBitLogo } from './icon/DrillBitLogo'
 export { default as LoginBannerIcon } from './icon/LoginBannerIcon'
+export { default as FolderIcon } from './icon/FolderIcon'
+export { default as FolderFileIcon } from './icon/FolderFileIcon'
+export { default as File } from './icon/file/File'
+export { default as FileDoc } from './icon/file/FileDoc'
+export { default as FileWord } from './icon/file/FileWord'

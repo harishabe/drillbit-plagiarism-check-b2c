@@ -2,15 +2,19 @@
 
 import { Box, Divider, Grid, Typography } from '@mui/material'
 import { Navbar } from '@/app/components'
-import { PageView } from '@/app/dashboard/PageView/PageView'
+import { File } from '@/app/dashboard/PageView/FileView'
+import { Folder } from '@/app/dashboard/PageView/FolderView'
+
 import '../dashboard/dashboard.scss'
 
 const Dashboard = () => {
-  const PageViewContainer = new Array(10).fill(null).map((_, index: number) => (
-    <Grid key={index} item xs={12} sm={6} md={4} lg={2}>
-      <PageView />
-    </Grid>
-  ))
+  const FolderViewContainer = new Array(10)
+    .fill(null)
+    .map((_, index: number) => (
+      <Grid key={index} item xs={6} sm={4} md={3} lg={1.5}>
+        <Folder />
+      </Grid>
+    ))
 
   return (
     <div>
@@ -18,18 +22,16 @@ const Dashboard = () => {
       <div className="dashboard">
         <div className="page-container">
           <Box>
-            <Typography variant="h2">File</Typography>
+            <Typography variant="h2">File(16)</Typography>
             <Divider />
             <div className="container">
-              <Grid container item spacing={2}>
-                {PageViewContainer}
-              </Grid>
+              <File />
             </div>
-            <Typography variant="h2">Folder</Typography>
+            <Typography variant="h2">Folder(18)</Typography>
             <Divider />
             <div className="container">
               <Grid container item spacing={2}>
-                {PageViewContainer}
+                {FolderViewContainer}
               </Grid>
             </div>
           </Box>
