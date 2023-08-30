@@ -15,7 +15,10 @@ import {
   ListItemIcon,
   Button,
 } from '@mui/material'
-import { DrillBitLogo } from 'public/assets'
+import { EllipsisText } from '@/app/components'
+import { DrillBitLogo, DownArrowIcon } from 'public/assets'
+import { profileData } from 'public/assets/mockData/data'
+import '../component.scss'
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
@@ -37,28 +40,32 @@ const Navbar = () => {
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box>
-            <div style={{ display: 'flex' }}>
+            <div className="flex">
               <Divider orientation="vertical" flexItem />
-              <div style={{ padding: '0.3rem 0.5rem 0rem 0.8rem' }}>
-                <Typography variant="h4">Harisha</Typography>
-                <Typography variant="h5">harish90...</Typography>
+              <div className="padding">
+                <EllipsisText value={'Harisha'} />
+                <EllipsisText value="harish90909090909090" variant="body2" />
               </div>
               <Tooltip arrow title="Profile">
                 <IconButton>
                   <Avatar
                     onClick={handleProfileClick}
                     alt="Harisha"
-                    sx={{
-                      width: 45,
-                      height: 45,
-                      background: '#68C886',
-                      color: '#fff',
-                    }}
+                    className="profile-avatar"
                   >
                     {'Harisha' && 'Harisha'.charAt(0)?.toUpperCase()}
                   </Avatar>
                 </IconButton>
               </Tooltip>
+              <IconButton
+                onClick={handleProfileClick}
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                className="ml-5"
+              >
+                <DownArrowIcon />
+              </IconButton>
             </div>
           </Box>
         </Toolbar>
@@ -98,60 +105,40 @@ const Navbar = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem
-          style={{
-            paddingTop: '0px',
-            paddingBottom: '0px',
-            width: 328,
-            boxShadow: 'none',
-            maxWidth: '100%',
-            background: '#fff',
-          }}
-        >
-          <Avatar
-            alt={'name'}
-            style={{
-              width: '56px',
-              height: '56px',
-              background: '#68C886',
-              color: '#fff',
-            }}
-          >
+        <MenuItem className="dropdown-menuitem">
+          <Avatar alt={'name'} className="dropdown-avatar-profile">
             {'Harisha' && 'Harisha'.charAt(0)?.toUpperCase()}
           </Avatar>
-          <ListItemText primary={'Harisha'} secondary={'Person'} />
-        </MenuItem>
-        <Divider style={{ marginLeft: '10px', marginRight: '10px' }} />
-        <MenuItem style={{ paddingTop: '0px', paddingBottom: '0px' }}>
-          <ListItemIcon>
-            <Avatar />
-          </ListItemIcon>
           <ListItemText
-            style={{ padding: '5px 15px' }}
-            primary="Account info"
-            secondary="Account details"
+            primary={<EllipsisText value={'Harisha'} />}
+            secondary={<EllipsisText value={'Person'} variant="body2" />}
           />
         </MenuItem>
-        <Divider style={{ marginLeft: '10px', marginRight: '10px' }} />
-        <MenuItem style={{ paddingTop: '0px', paddingBottom: '0px' }}>
-          <ListItemIcon>
-            <Avatar />
-          </ListItemIcon>
-          <ListItemText
-            style={{ padding: '5px 15px' }}
-            primary="Account info"
-            secondary="Account details"
-          />
-        </MenuItem>
-        <MenuItem
-          style={{ paddingTop: '0px', paddingBottom: '0px', marginTop: '18px' }}
-        >
+        {profileData?.map((item) => (
+          <>
+            <Divider className="dropdown-divider" />
+            <MenuItem className="pt-pb-0">
+              <ListItemIcon>
+                <Avatar
+                  component={item.icon}
+                  className="dropdown-avatar-menuitem"
+                />
+              </ListItemIcon>
+              <ListItemText
+                className="pt-5-pb-15"
+                primary={item.primary}
+                secondary={item.secondary}
+              />
+            </MenuItem>
+          </>
+        ))}
+        <MenuItem className="pt-pb-0-mt-18">
           <Button variant="contained" fullWidth color="primary">
             Log out
           </Button>
         </MenuItem>
 
-        <div style={{ textAlign: 'right', padding: '0px 15px' }}>
+        <div className="version">
           <Typography variant="h5">v.0.0.0</Typography>
         </div>
       </Menu>
