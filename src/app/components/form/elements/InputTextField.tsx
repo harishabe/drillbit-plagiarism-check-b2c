@@ -1,13 +1,13 @@
 import React from 'react'
 import { TextField, InputLabel } from '@mui/material'
 
-interface FieldProps {
+interface IFieldProps {
   label: string
   type?: string
   name?: string
 }
 
-const InputTextField = ({ field }: { field: FieldProps }) => {
+const InputTextField = ({ field }: { field: IFieldProps }) => {
   const { label, type, name } = field
   return (
     <div>

@@ -1,5 +1,40 @@
 .fileFolderView {
-  .content-center {
+  .card-content {
+    padding: 0.625rem 0.25rem !important;
+    .content-center {
+      text-align: center;
+    }
+  }
+
+  .left {
+    margin-left: auto;
+  }
+  .right {
+    margin-right: auto;
+  }
+  .icon-font {
+    font-size: 1.15rem;
+  }
+}
+
+.fileView {
+  @extend .fileFolderView;
+}
+
+.folderView {
+  @extend .fileFolderView;
+}
+
+.uploadFileView {
+  .upload-border {
+    padding: 3.14rem 1.12rem;
+    border: 2px dotted #808080;
     text-align: center;
+  }
+  .display-none {
+    display: none;
+  }
+  .pointer {
+    cursor: pointer;
   }
 }

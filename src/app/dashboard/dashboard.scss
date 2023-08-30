@@ -1,6 +1,9 @@
 .dashboard {
   .page-container {
-    padding: 1rem;
+    padding: 2rem 3rem 3rem 3rem;
+    @media only screen and (max-width: 600px) {
+      padding: 1rem;
+    }
     margin-top: 4rem;
     .container {
       margin: 1rem 0rem 1rem 0rem;

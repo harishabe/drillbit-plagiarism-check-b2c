@@ -7,8 +7,8 @@ import './view.scss'
 
 const FolderView = () => {
   return (
-    <Card>
-      <CardContent className="fileFolderView">
+    <Card className="folderView">
+      <CardContent className="card-content">
         <div className="content-center">
           <FolderIcon />
           <Typography variant="body1">Thesis(5)</Typography>

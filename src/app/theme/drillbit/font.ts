@@ -2,7 +2,6 @@ const fontName = "'DM Sans', sans-serif"
 
 const font = {
   fontFamily: fontName,
-  fontSize: '.875rem',
   fontWeightLight: 300,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
