@@ -28,7 +28,6 @@
 }
 .padding {
   padding: 0.5rem 0.5rem 0rem 0.8rem;
-  // margin-right: 0.2rem;
   max-width: 7rem;
 }
 .pt-pb-0 {
@@ -39,8 +38,7 @@
   padding: 0.313rem 0.938rem;
 }
 .pt-pb-0-mt-18 {
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+ @extend .pt-pb-0;
   margin-top: 1.125rem;
 }
 .ml-5 {
@@ -56,8 +54,7 @@
   font-weight: 700;
 }
 .dropdown-menuitem {
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  @extend .pt-pb-0;
   width: 20.5rem;
   box-shadow: none;
   max-width: 100%;
