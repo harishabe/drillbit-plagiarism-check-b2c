@@ -1,0 +1,22 @@
+  .ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .ellipsisFlex {
+    display: 'flex';
+  }
+  .linkFieldEllipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 5px !important;
+    color: #454745 !important;
+    text-decoration: none !important;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration-color: rgb(69, 71, 69) !important;
+      text-decoration: underline !important;
+    }
+  }
