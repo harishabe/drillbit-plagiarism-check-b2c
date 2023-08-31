@@ -26,37 +26,35 @@ const WarningDialog = ({
   handleNo,
 }: IDialogprops) => {
   return (
-    <div>
-      <Dialog open={isOpen} onClose={handleNo}>
-        <DialogTitle>
-          <Tooltip title="close" arrow>
-            <IconButton
-              aria-label="close"
-              onClick={handleNo}
-              className="close-icon"
-            >
-              <CloseIcon />
-            </IconButton>
-          </Tooltip>
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            <div className="warning-container">
-              <div>{warningIcon}</div>
-              <div className="message-container">{message}</div>
-              <div className="button-container">
-                <Button onClick={handleNo} variant="outlined" className="mr-8">
-                  No
-                </Button>
-                <Button onClick={handleYes} variant="contained">
-                  Yes
-                </Button>
-              </div>
+    <Dialog open={isOpen} onClose={handleNo}>
+      <DialogTitle>
+        <Tooltip title="close" arrow>
+          <IconButton
+            aria-label="close"
+            onClick={handleNo}
+            className="close-icon"
+          >
+            <CloseIcon />
+          </IconButton>
+        </Tooltip>
+      </DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          <div className="warning-container">
+            <div>{warningIcon}</div>
+            <div className="message-container">{message}</div>
+            <div className="button-container">
+              <Button onClick={handleNo} variant="outlined" className="mr-8">
+                No
+              </Button>
+              <Button onClick={handleYes} variant="contained">
+                Yes
+              </Button>
             </div>
-          </DialogContentText>
-        </DialogContent>
-      </Dialog>
-    </div>
+          </div>
+        </DialogContentText>
+      </DialogContent>
+    </Dialog>
   )
 }
 
