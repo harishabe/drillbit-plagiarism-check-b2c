@@ -4,7 +4,7 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined'
 
 import './view.scss'
 
-const UploadView = () => {
+const UploadView = ({ handeUpload }: { handeUpload: () => void }) => {
   return (
     <Card className="uploadFileView">
       <CardContent>
@@ -14,7 +14,12 @@ const UploadView = () => {
             <Typography variant="body2">Upload file</Typography>
           </div>
         </label>
-        <input type="file" id="file-upload" className="display-none" />
+        <input
+          type="file"
+          className="display-none"
+          id="file-upload"
+          onClick={handeUpload}
+        />
       </CardContent>
     </Card>
   )
