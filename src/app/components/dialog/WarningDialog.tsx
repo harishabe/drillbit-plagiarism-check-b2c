@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { ReactNode, MouseEvent } from 'react'
 import {
   IconButton,
   DialogTitle,
@@ -13,9 +13,9 @@ import CloseIcon from '@mui/icons-material/Close'
 interface IDialogprops {
   isOpen: boolean
   message: string
-  warningIcon: React.ReactNode
-  handleYes: (event: React.MouseEvent<HTMLButtonElement>) => void
-  handleNo: (event: React.MouseEvent<HTMLButtonElement>) => void
+  warningIcon: ReactNode
+  handleYes: (event: MouseEvent<HTMLButtonElement>) => void
+  handleNo: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 const WarningDialog = ({
@@ -28,7 +28,7 @@ const WarningDialog = ({
   return (
     <Dialog open={isOpen} onClose={handleNo}>
       <DialogTitle>
-        <Tooltip title="close" arrow>
+        <Tooltip title="Close" arrow>
           <IconButton
             aria-label="close"
             onClick={handleNo}
