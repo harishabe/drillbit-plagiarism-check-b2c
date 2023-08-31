@@ -1,5 +1,5 @@
 'use client'
-
+import React, { useState } from 'react'
 import {
   Card,
   CardActions,
@@ -9,6 +9,8 @@ import {
   Typography,
 } from '@mui/material'
 import Link from 'next/link'
+import { DeleteWarningIcon, DownloadWarningIcon } from 'public/assets'
+import { WarningDialog } from '@/app/components'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import DeleteIcon from '@mui/icons-material/DeleteOutlined'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
@@ -28,6 +30,28 @@ const RenderFileImg = ({ FileLogo }: { FileLogo: () => JSX.Element }) => {
 }
 
 const FileView = ({ fileData }: { fileData: IFileData }) => {
+  const [showDeleteWarning, setShowDeleteWarning] = useState(false)
+  const [showDownloadWarning, setShowDownloadWarning] = useState(false)
+
+  const deleteFile = () => {
+    setShowDeleteWarning(true)
+  }
+  const downloadFile = () => {
+    setShowDownloadWarning(true)
+  }
+  const handleYesDeleteWarning = () => {
+    setShowDeleteWarning(false)
+  }
+  const handleCloseDeleteWarning = () => {
+    setShowDeleteWarning(false)
+  }
+  const handleYesDownloadWarning = () => {
+    setShowDownloadWarning(false)
+  }
+  const handleCloseDownloadWarning = () => {
+    setShowDownloadWarning(false)
+  }
+
   return (
     <Card className="fileView">
       <CardContent className="card-content">
@@ -58,7 +82,7 @@ const FileView = ({ fileData }: { fileData: IFileData }) => {
             <IconButton
               aria-label="Download"
               onClick={() => {
-                return 0
+                downloadFile()
               }}
             >
               <FileDownloadOutlinedIcon className="icon-font" />
@@ -69,7 +93,7 @@ const FileView = ({ fileData }: { fileData: IFileData }) => {
             <IconButton
               aria-label="Delete"
               onClick={() => {
-                return 0
+                deleteFile()
               }}
             >
               <DeleteIcon className="icon-font" />
@@ -77,6 +101,24 @@ const FileView = ({ fileData }: { fileData: IFileData }) => {
           </Tooltip>
         </div>
       </CardActions>
+      {showDeleteWarning && (
+        <WarningDialog
+          warningIcon={<DeleteWarningIcon />}
+          message="Are you sure you want to delete ?"
+          handleYes={handleYesDeleteWarning}
+          handleNo={handleCloseDeleteWarning}
+          isOpen={true}
+        />
+      )}
+      {showDownloadWarning && (
+        <WarningDialog
+          warningIcon={<DownloadWarningIcon />}
+          message="Are you sure you want to download ?"
+          handleYes={handleYesDownloadWarning}
+          handleNo={handleCloseDownloadWarning}
+          isOpen={true}
+        />
+      )}
     </Card>
   )
 }
