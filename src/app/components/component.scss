@@ -1,22 +1,47 @@
-  .ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .ellipsisFlex {
-    display: 'flex';
-  }
-  .linkFieldEllipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    margin-top: 5px !important;
-    color: #454745 !important;
-    text-decoration: none !important;
-    cursor: pointer;
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ellipsisFlex {
+  display: 'flex';
+}
+.linkFieldEllipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 5px !important;
+  color: #454745 !important;
+  text-decoration: none !important;
+  cursor: pointer;
 
-    &:hover {
-      text-decoration-color: rgb(69, 71, 69) !important;
-      text-decoration: underline !important;
-    }
+  &:hover {
+    text-decoration-color: rgb(69, 71, 69) !important;
+    text-decoration: underline !important;
   }
+}
+
+// <- WARNING DIALOG ->
+
+.warning-container {
+  padding: 0.313rem 3.75rem;
+  text-align: center;
+
+  .message-container {
+    margin-top: 0.625rem;
+    color: #454745;
+    font-weight: 600;
+  }
+
+  .button-container {
+    margin-top: 1.25rem;
+  }
+}
+.close-icon{
+  position: absolute;
+  margin-left: 19.75rem;
+  margin-bottom: 2rem;
+}
+.mr-8 {
+  margin-right: 0.625rem;
+}
