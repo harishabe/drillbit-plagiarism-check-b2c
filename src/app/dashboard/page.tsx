@@ -1,9 +1,11 @@
 'use client'
 
+import Link from 'next/link';
 import { Box, Divider, Grid, Typography } from '@mui/material'
 import { Navbar } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
 import { Folder } from '@/app/dashboard/PageView/FolderView'
+
 
 import '../dashboard/dashboard.scss'
 
@@ -26,13 +28,23 @@ const Dashboard = () => {
             <Divider />
             <div className="container">
               <File />
+              <div className="file-view-all">
+              <Link href="/dashboard/files">
+                <Typography variant='body1'>View All</Typography>
+              </Link>
+              </div>
             </div>
             <Typography variant="h2">Folder(18)</Typography>
             <Divider />
             <div className="container">
               <Grid container item spacing={2}>
-                {FolderViewContainer}
+                {FolderViewContainer}               
               </Grid>
+              <div className="folder-view-all">
+                <Link href="/dashboard/folders">
+                <Typography variant='body1'>View All</Typography>
+                </Link>
+                </div>
             </div>
           </Box>
         </div>
