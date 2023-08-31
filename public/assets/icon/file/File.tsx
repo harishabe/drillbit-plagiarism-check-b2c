@@ -5,8 +5,8 @@ const File = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 120 120"
-      width="60px"
-      height="60px"
+      width="40px"
+      height="40px"
       baseProfile="basic"
     >
       <polygon points="24,108 24,16 70,16 96,40 96,108" opacity=".35" />
