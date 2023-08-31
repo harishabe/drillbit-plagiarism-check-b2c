@@ -7,6 +7,7 @@ import {
   Tooltip,
   DialogContent,
   DialogContentText,
+  Typography,
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 
@@ -42,7 +43,7 @@ const WarningDialog = ({
         <DialogContentText>
           <div className="warning-container">
             <div>{warningIcon}</div>
-            <div className="message-container">{message}</div>
+            <Typography className="message-container">{message}</Typography>
             <div className="button-container">
               <Button onClick={handleNo} variant="outlined" className="mr-8">
                 No

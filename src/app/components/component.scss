@@ -7,9 +7,7 @@
   display: 'flex';
 }
 .linkFieldEllipsis {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  @extend .ellipsis;
   margin-top: 5px !important;
   color: #454745 !important;
   text-decoration: none !important;
