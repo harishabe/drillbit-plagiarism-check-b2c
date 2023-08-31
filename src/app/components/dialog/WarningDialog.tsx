@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ReactNode, MouseEvent } from 'react'
 import {
   IconButton,
@@ -9,7 +11,7 @@ import {
   DialogContentText,
   Typography,
 } from '@mui/material'
-import CloseIcon from '@mui/icons-material/Close'
+import { Close as CloseIcon } from '@mui/icons-material'
 
 interface IDialogprops {
   isOpen: boolean

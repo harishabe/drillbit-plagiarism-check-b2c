@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { ReactNode, MouseEvent } from 'react'
 import Draggable from 'react-draggable'
 import { Breakpoint } from '@mui/system'
 import {
@@ -21,8 +23,8 @@ interface IDialogModalProps {
   isOpen: boolean
   fullWidth?: boolean
   maxWidth?: false | Breakpoint
-  handleClose: () => void
-  children: JSX.Element
+  handleClose: (event: MouseEvent<HTMLButtonElement>) => void
+  children: ReactNode
 }
 
 function PaperComponent(props: PaperProps) {

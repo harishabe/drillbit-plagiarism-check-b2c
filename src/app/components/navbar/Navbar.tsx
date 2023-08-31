@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useState, MouseEvent } from 'react'
 import {
   AppBar,
@@ -57,15 +58,13 @@ const Navbar = () => {
                   </Avatar>
                 </IconButton>
               </Tooltip>
-              <IconButton
+              <span
+                className="arrow"
+                role="button"
                 onClick={handleProfileClick}
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                className="ml-5"
               >
                 <DownArrowIcon />
-              </IconButton>
+              </span>
             </div>
           </Box>
         </Toolbar>
@@ -116,8 +115,8 @@ const Navbar = () => {
         </MenuItem>
         {profileData?.map((item) => (
           <>
-            <Divider className="dropdown-divider" />
-            <MenuItem className="pt-pb-0">
+            <Divider />
+            <MenuItem className="pt0-pl1">
               <ListItemIcon>
                 <Avatar
                   component={item.icon}
@@ -132,7 +131,7 @@ const Navbar = () => {
             </MenuItem>
           </>
         ))}
-        <MenuItem className="pt-pb-0-mt-18">
+        <MenuItem className="mt-18">
           <Button variant="contained" fullWidth color="primary">
             Log out
           </Button>
