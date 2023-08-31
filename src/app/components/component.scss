@@ -1,22 +1,100 @@
-  .ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  .ellipsisFlex {
-    display: 'flex';
-  }
-  .linkFieldEllipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    margin-top: 5px !important;
-    color: #454745 !important;
-    text-decoration: none !important;
-    cursor: pointer;
+// <- ELLIPSIS ->
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ellipsisFlex {
+  display: flex;
+}
+.linkFieldEllipsis {
+  @extend .ellipsis;
+  margin-top: 5px !important;
+  color: #454745 !important;
+  text-decoration: none !important;
+  cursor: pointer;
 
-    &:hover {
-      text-decoration-color: rgb(69, 71, 69) !important;
-      text-decoration: underline !important;
-    }
+  &:hover {
+    text-decoration-color: rgb(69, 71, 69) !important;
+    text-decoration: underline !important;
   }
+}
+
+// <- WARNING DIALOG ->
+
+.warning-container {
+  padding: 0.313rem 3.75rem;
+  text-align: center;
+
+  .message-container {
+    margin-top: 0.625rem;
+    color: #454745;
+    font-weight: 600;
+  }
+
+  .button-container {
+    margin-top: 1.25rem;
+  }
+}
+.close-icon{
+  position: absolute;
+  margin : 0rem 0rem 2rem 19.75rem;
+}
+.mr-8 {
+  margin-right: 0.625rem;
+}
+// <- NAVBAR ->
+.flex {
+   display: flex;
+}
+.padding {
+  padding: 0.5rem 0.5rem 0rem 0.8rem;
+  max-width: 7rem;
+}
+.pt-pb-0 {
+  padding: 0rem;
+}
+.pt-5-pb-15 {
+  padding: 0.313rem 0.938rem;
+}
+.pt-pb-0-mt-18 {
+ @extend .pt-pb-0;
+  margin-top: 1.125rem;
+}
+.ml-5 {
+  margin : 0rem -0.5rem 0rem 0.25rem;
+}
+.profile-avatar {
+  width: 2.813rem;
+  height: 2.813rem;
+  background-color: #68C886;
+  color: #fff;
+  font-size: large;
+  font-weight: 700;
+}
+.dropdown-menuitem {
+  @extend .pt-pb-0;
+  width: 20.5rem;
+  box-shadow: none;
+  max-width: 100%;
+  background-color: #fff !important;
+}
+.dropdown-avatar-profile {
+  width: 3.125rem !important;
+  height: 3.125rem !important;
+  background-color: #68C886;
+  color: #fff;
+  font-size: large;
+  font-weight: 700;
+}
+.dropdown-avatar-menuitem {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+}
+.dropdown-divider {
+  margin: 0rem 0.625rem;
+}
+.version {
+  text-align: right;
+  padding: 0rem 0.938rem;
+}
