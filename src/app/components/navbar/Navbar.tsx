@@ -131,6 +131,7 @@ const Navbar = () => {
             </MenuItem>
           </>
         ))}
+        <Divider />
         <MenuItem className="mt-18">
           <Button variant="contained" fullWidth color="primary">
             Log out
