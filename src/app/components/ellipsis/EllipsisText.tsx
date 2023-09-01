@@ -1,7 +1,8 @@
 'use client'
+
 import React, { useState, useEffect, useRef } from 'react'
-import { Tooltip } from '@mui/material'
-import Typography, { TypographyTypeMap } from '@mui/material/Typography'
+import { Typography, Tooltip, TypographyTypeMap } from '@mui/material'
+
 import '../component.scss'
 
 interface EllipsisTextProps {
@@ -12,7 +13,7 @@ interface EllipsisTextProps {
 
 const EllipsisText = ({ value, isLink, variant }: EllipsisTextProps) => {
   const textElement = useRef<HTMLDivElement | null>(null)
-  const [overflowed, setOverflowed] = useState(false)
+  const [overflowed, setOverflowed] = useState<boolean>(false)
 
   const checkTextOverflow = () => {
     const element = textElement.current
@@ -31,30 +32,35 @@ const EllipsisText = ({ value, isLink, variant }: EllipsisTextProps) => {
   }, [])
 
   return (
-    <Tooltip title={overflowed ? value : ''} arrow>
+    <>
       {isLink ? (
-        <div className="ellipsisFlex">
+        <Tooltip title={overflowed ? value : ''} arrow>
+          <div className="ellipsisFlex">
+            <Typography
+              variant={variant || 'body1'}
+              ref={textElement}
+              component="div"
+              onMouseEnter={checkTextOverflow}
+              className="linkFieldEllipsis"
+            >
+              {value}
+            </Typography>
+          </div>
+        </Tooltip>
+      ) : (
+        <Tooltip title={overflowed ? value : ''} arrow>
           <Typography
             variant={variant || 'body1'}
+            component="div"
             ref={textElement}
+            className="ellipsis"
             onMouseEnter={checkTextOverflow}
-            className="linkFieldEllipsis"
           >
-            {value?.charAt(0).toUpperCase() + value?.slice(1)}
+            {value}
           </Typography>
-        </div>
-      ) : (
-        <Typography
-          variant={variant || 'body1'}
-          component="div"
-          ref={textElement}
-          className="ellipsis"
-          onMouseEnter={checkTextOverflow}
-        >
-          {value?.charAt(0).toUpperCase() + value?.slice(1)}
-        </Typography>
+        </Tooltip>
       )}
-    </Tooltip>
+    </>
   )
 }
 export default EllipsisText

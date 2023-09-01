@@ -45,7 +45,7 @@ const Navbar = () => {
               <Divider orientation="vertical" flexItem />
               <div className="padding">
                 <EllipsisText value={'Harisha'} />
-                <EllipsisText value="harish90909090909090" variant="body2" />
+                <EllipsisText value={'harish90909090909090'} variant="body2" />
               </div>
               <Tooltip arrow title="Profile">
                 <IconButton>

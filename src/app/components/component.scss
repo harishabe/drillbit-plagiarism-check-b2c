@@ -98,3 +98,11 @@
   text-align: right;
   padding: 0rem 0.938rem;
 }
+
+// BreadCrumb
+.breadCrumb {
+  .active {
+    color: #282828;
+    font-weight: 600;
+  }
+}

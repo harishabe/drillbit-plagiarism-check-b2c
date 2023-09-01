@@ -1,28 +1,41 @@
-
 'use client'
 
-import { Box, Divider, Grid, Typography } from '@mui/material'
-import { Navbar } from '@/app/components'
+import { Divider, Typography } from '@mui/material'
+import { Navbar, BreadCrumb } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
-import '../dashboard.scss';
+import '../dashboard.scss'
+
+const FilesBreadCrumb = [
+  {
+    name: 'Dashboard',
+    link: '/dashboard',
+    active: false,
+  },
+  {
+    name: `Files`,
+    link: '',
+    active: true,
+  },
+]
 
 const Files = () => {
-    return(
+  return (
     <div>
-        <Navbar />
-        <div className="dashboard">
-            <div className="page-container">
-            <Box>
-                <Typography variant="h2">File(16)</Typography>
-                <Divider />
-                <div className="container">
-                <File />
-                </div>
-            </Box>
-            </div>
+      <Navbar />
+      <div className="dashboard">
+        <div className="page-container">
+          <div style={{ marginBottom: '0.5rem' }}>
+            <BreadCrumb item={FilesBreadCrumb} />
+          </div>
+          <Typography variant="h2">Files(16)</Typography>
+          <Divider />
+          <div className="container">
+            <File />
+          </div>
         </div>
-    </div>  
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Files
