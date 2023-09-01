@@ -20,30 +20,6 @@
   }
 }
 
-// <- WARNING DIALOG ->
-
-.warning-container {
-  padding: 0.313rem 3.75rem;
-  text-align: center;
-
-  .message-container {
-    margin-top: 0.625rem;
-    color: #454745;
-    font-weight: 600;
-  }
-
-  .button-container {
-    margin-top: 1.25rem;
-  }
-}
-.close-icon {
-  position: absolute;
-  margin: 0rem 0rem 2rem 19.75rem;
-}
-.mr-8 {
-  margin-right: 0.625rem;
-}
-
 // <- NAVBAR ->
 .flex {
   display: flex;

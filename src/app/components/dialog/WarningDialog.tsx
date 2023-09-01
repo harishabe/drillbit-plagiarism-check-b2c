@@ -12,6 +12,7 @@ import {
   Typography,
 } from '@mui/material'
 import { Close as CloseIcon } from '@mui/icons-material'
+import './dialogModal.scss'
 
 interface IDialogprops {
   isOpen: boolean
@@ -29,7 +30,7 @@ const WarningDialog = ({
   handleNo,
 }: IDialogprops) => {
   return (
-    <Dialog open={isOpen} onClose={handleNo}>
+    <Dialog className="dialogBoxModal" open={isOpen} onClose={handleNo}>
       <DialogTitle>
         <Tooltip title="Close" arrow>
           <IconButton
