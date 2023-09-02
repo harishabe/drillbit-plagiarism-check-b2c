@@ -3,6 +3,7 @@
 import { Divider, Typography } from '@mui/material'
 import { Navbar, BreadCrumb } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
+import { TextView } from '@/app/dashboard/Text/TextView'
 import '../dashboard.scss'
 
 const FilesBreadCrumb = [
@@ -31,6 +32,9 @@ const Files = () => {
           <Divider />
           <div className="container">
             <File />
+          </div>
+          <div className="container">
+            <TextView />
           </div>
         </div>
       </div>
