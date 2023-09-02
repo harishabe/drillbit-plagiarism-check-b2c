@@ -45,7 +45,6 @@ const Dashboard = () => {
                 </Link>
               </div>
             </div>
-            <Divider />
           </Box>
         </div>
       </div>
