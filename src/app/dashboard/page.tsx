@@ -5,7 +5,6 @@ import { Box, Divider, Grid, Typography } from '@mui/material'
 import { Navbar } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
 import { Folder } from '@/app/dashboard/PageView/FolderView'
-import { TextView } from '@/app/dashboard/Text/TextView'
 
 import '../dashboard/dashboard.scss'
 
@@ -47,9 +46,6 @@ const Dashboard = () => {
               </div>
             </div>
             <Divider />
-            <div>
-              <TextView />
-            </div>
           </Box>
         </div>
       </div>
