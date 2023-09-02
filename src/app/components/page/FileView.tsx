@@ -15,6 +15,8 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import DeleteIcon from '@mui/icons-material/DeleteOutlined'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 
+import { EllipsisText } from '@/app/components'
+
 import './view.scss'
 
 interface IFileData {
@@ -61,7 +63,9 @@ const FileView = ({ fileData }: { fileData: IFileData }) => {
             <Link href="">{fileData.percentage}%</Link>
           </Typography>
           <Typography variant="body2">{fileData.language}</Typography>
-          <Typography variant="body1">{fileData.name}</Typography>
+          <Typography variant="body1">
+            <EllipsisText value={fileData.name} />
+          </Typography>
         </div>
       </CardContent>
       <CardActions>

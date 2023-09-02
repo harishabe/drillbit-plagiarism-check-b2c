@@ -34,7 +34,7 @@ export const fileData = [
     percentage: 18,
   },
   {
-    name: 'Drill plagiarism',
+    name: 'Drill plagiarismplagiarismplagiarism',
     fileType: 'doc',
     FileLogo: File,
     language: 'Telugu',
@@ -48,7 +48,7 @@ export const fileData = [
     percentage: 10,
   },
   {
-    name: 'Thesis evaluvation',
+    name: 'Thesis evaluvationevaluvationevaluvation',
     fileType: 'pdf',
     FileLogo: FileWord,
     language: 'Tamil',

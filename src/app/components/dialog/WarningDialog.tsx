@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ReactNode, MouseEvent } from 'react'
 import {
   IconButton,
@@ -9,7 +11,8 @@ import {
   DialogContentText,
   Typography,
 } from '@mui/material'
-import CloseIcon from '@mui/icons-material/Close'
+import { Close as CloseIcon } from '@mui/icons-material'
+import './dialogModal.scss'
 
 interface IDialogprops {
   isOpen: boolean
@@ -27,7 +30,7 @@ const WarningDialog = ({
   handleNo,
 }: IDialogprops) => {
   return (
-    <Dialog open={isOpen} onClose={handleNo}>
+    <Dialog className="dialogBoxModal" open={isOpen} onClose={handleNo}>
       <DialogTitle>
         <Tooltip title="Close" arrow>
           <IconButton

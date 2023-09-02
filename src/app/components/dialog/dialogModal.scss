@@ -1,0 +1,28 @@
+.dialogBoxModal {
+  .move {
+    cursor: move;
+  }
+  .close-icon {
+    position: absolute;
+    right: 0.25rem;
+    top: 0.5rem;
+  }
+
+  .warning-container {
+    padding: 0.313rem 3.75rem;
+    text-align: center;
+
+    .message-container {
+      margin-top: 0.625rem;
+      color: #454745;
+      font-weight: 600;
+    }
+
+    .button-container {
+      margin-top: 1.25rem;
+    }
+    .mr-8 {
+      margin-right: 0.625rem;
+    }
+  }
+}

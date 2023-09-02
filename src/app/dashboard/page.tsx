@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Box, Divider, Grid, Typography } from '@mui/material'
 import { Navbar } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
@@ -21,12 +22,17 @@ const Dashboard = () => {
     <div>
       <Navbar />
       <div className="dashboard">
-        <div className="page-container">
+        <div className="page-container" style={{ paddingTop: '2rem' }}>
           <Box>
             <Typography variant="h2">File(16)</Typography>
             <Divider />
             <div className="container">
               <File />
+              <div className="file-view-all">
+                <Link href="/dashboard/files">
+                  <Typography variant="body1">View All</Typography>
+                </Link>
+              </div>
             </div>
             <Typography variant="h2">Folder(18)</Typography>
             <Divider />
@@ -34,6 +40,11 @@ const Dashboard = () => {
               <Grid container item spacing={2}>
                 {FolderViewContainer}
               </Grid>
+              <div className="folder-view-all">
+                <Link href="/dashboard/folders">
+                  <Typography variant="body1">View All</Typography>
+                </Link>
+              </div>
             </div>
             <Divider />
             <div>
