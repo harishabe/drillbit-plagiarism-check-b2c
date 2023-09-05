@@ -72,6 +72,13 @@ const drillBitTheme: IDrillBitTheme = {
         },
       },
     },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          textTransform: 'capitalize',
+        },
+      },
+    },
   },
 }
 
