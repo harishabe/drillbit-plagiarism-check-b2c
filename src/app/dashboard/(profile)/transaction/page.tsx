@@ -4,7 +4,7 @@ import React from 'react'
 import { Navbar, BreadCrumb, TabMenu } from '@/app/components'
 import PurchaseHistory from './TransactionsView/PurchaseHistory'
 import SubmissionHistory from './TransactionsView/SubmissionHistory'
-import '../../dashboard/dashboard.scss'
+import '../../dashboard.scss'
 
 const TransactionBreadCrumb = [
   {

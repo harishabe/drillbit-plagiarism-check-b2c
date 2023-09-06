@@ -52,14 +52,7 @@ const TabMenu = ({ menuButton, components }: ITabmenu) => {
       <Box className="border">
         <Tabs value={value} onChange={handleChange}>
           {menuButton.map((item, index) => (
-            <Tab
-              key={index}
-              classes={{
-                selected: 'classes-selected',
-              }}
-              label={item}
-              {...a11yProps(index)}
-            />
+            <Tab key={index} label={item} {...a11yProps(index)} />
           ))}
         </Tabs>
       </Box>
