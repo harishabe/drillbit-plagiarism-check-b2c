@@ -72,6 +72,20 @@ const drillBitTheme: IDrillBitTheme = {
         },
       },
     },
+    MuiSlider: {
+      styleOverrides: {
+        root: {
+          height: '1rem',
+        },
+        valueLabel: {
+          color: '#fff',
+        },
+        thumb: {
+          width: '2.1875rem !important',
+          height: '2.1875rem !important',
+        },
+      },
+    },
   },
 }
 

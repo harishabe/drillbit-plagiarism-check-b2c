@@ -30,9 +30,6 @@ export const File = () => {
       </DialogModal>
 
       <Grid container item spacing={2}>
-        <Grid item xs={6} sm={4} md={3} lg={1.5}>
-          <UploadView handeUpload={handeUpload} />
-        </Grid>
         {fileData?.map((item, key) => (
           <Grid key={key} item xs={6} sm={4} md={3} lg={1.5}>
             <FileView fileData={item} />

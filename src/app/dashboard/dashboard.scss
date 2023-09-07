@@ -1,18 +1,36 @@
 .dashboard {
+  .add-btn-container {
+    margin-top: 4rem;
+    background: #fff;
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+    transition: 'box-shadow .1s';
+    .btn {
+      padding-left: 45px;
+      padding-top: 12px;
+      padding-bottom: 10px;
+    }
+  }
   .page-container {
-    padding: 0.8rem 3rem 3rem 3rem;
+    padding: 8.5rem 3rem 3rem 3rem;
     @media only screen and (max-width: 600px) {
       padding: 1rem;
     }
-    margin-top: 4rem;
     .container {
       margin: 1rem 0rem 1rem 0rem;
     }
     .file-view-all {
       text-align: right;
+      :hover {
+        text-decoration: underline;
+      }
     }
     .folder-view-all {
       text-align: right;
+      :hover {
+        text-decoration: underline;
+      }
     }
   }
 }

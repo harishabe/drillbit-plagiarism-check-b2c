@@ -1,0 +1,48 @@
+.buyPages {
+  .padding-page {
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+  .buy-page-container {
+    text-align: center;
+    margin-bottom: 1rem;
+    .buy-page {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+  }
+  .price-container {
+    padding: 0rem 15rem;
+    .amount-right {
+      text-align: right;
+    }
+    .page-prices {
+      padding: 0.7rem 1rem;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+    .font {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .pages-amount {
+      @extend .font;
+      color: #000;
+    }
+    .selected-pages-amount {
+      @extend .font;
+      color: #fff;
+    }
+    .card {
+      @extend .page-prices;
+      color: #000;
+      background: #fff;
+    }
+    .selected-card {
+      @extend .page-prices;
+      color: #fff;
+      background: #3672ff;
+    }
+  }
+}
