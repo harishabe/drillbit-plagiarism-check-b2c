@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, MouseEvent } from 'react'
+import Link from 'next/link'
 import {
   AppBar,
   Toolbar,
@@ -115,20 +116,22 @@ const Navbar = () => {
         </MenuItem>
         {profileData?.map((item) => (
           <>
-            <Divider />
-            <MenuItem className="pt0-pl1">
-              <ListItemIcon>
-                <Avatar
-                  component={item.icon}
-                  className="dropdown-avatar-menuitem"
+            <Link href={item.href}>
+              <Divider />
+              <MenuItem className="pt0-pl1">
+                <ListItemIcon>
+                  <Avatar
+                    component={item.icon}
+                    className="dropdown-avatar-menuitem"
+                  />
+                </ListItemIcon>
+                <ListItemText
+                  className="pt-5-pb-15"
+                  primary={item.primary}
+                  secondary={item.secondary}
                 />
-              </ListItemIcon>
-              <ListItemText
-                className="pt-5-pb-15"
-                primary={item.primary}
-                secondary={item.secondary}
-              />
-            </MenuItem>
+              </MenuItem>
+            </Link>
           </>
         ))}
         <Divider />

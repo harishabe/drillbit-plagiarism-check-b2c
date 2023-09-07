@@ -103,20 +103,24 @@ export const profileData = [
     primary: 'Account Info',
     icon: AccountIcon,
     secondary: 'Account details',
+    href: '/account',
   },
   {
     primary: 'Transaction history',
     icon: SwitchAccountIcon,
     secondary: 'Transaction details',
+    href: '/transaction',
   },
   {
     primary: 'Help',
     icon: HelpIcon,
     secondary: 'PDF / Video',
+    href: 'dashboard/help',
   },
   {
     primary: 'Change password',
     icon: ChangePwdIcon,
     secondary: 'Email',
+    href: 'dashboard/changepassword',
   },
 ]
