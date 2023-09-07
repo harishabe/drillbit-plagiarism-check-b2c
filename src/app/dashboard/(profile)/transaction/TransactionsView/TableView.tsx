@@ -9,10 +9,11 @@ interface IHeaderData {
 }
 
 interface IPurchaseData {
-  transaction_id?: string
-  no_of_pages?: string
+  transaction_id?: number
+  no_of_pages?: number
   date?: string
-  amount?: string
+  amount?: number
+  currency?: string
   method?: string
   paper_id?: string
   file_name?: string
@@ -71,7 +72,8 @@ const PaymentSubmissionTable = ({
                       {column.id === 'id' && row?.transaction_id}
                       {column.id === 'pages' && row?.no_of_pages}
                       {column.id === 'date' && row?.date}
-                      {column.id === 'amount' && row?.amount}
+                      {column.id === 'amount' &&
+                        `${row?.currency} ${row?.amount?.toFixed(2)}`}
                       {column.id === 'method' && row?.method}
                       {column.id === 'status' && row?.status}
                       {column.id === 'paper_id' && row?.paper_id}
