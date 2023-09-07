@@ -103,20 +103,98 @@ export const profileData = [
     primary: 'Account Info',
     icon: AccountIcon,
     secondary: 'Account details',
+    href: '/dashboard/accountInfo',
   },
   {
     primary: 'Transaction history',
     icon: SwitchAccountIcon,
     secondary: 'Transaction details',
+    href: '/dashboard/transaction',
   },
   {
     primary: 'Help',
     icon: HelpIcon,
     secondary: 'PDF / Video',
+    href: '/dashboard/help',
   },
   {
     primary: 'Change password',
     icon: ChangePwdIcon,
     secondary: 'Email',
+    href: '/dashboard/changePassword',
+  },
+]
+
+export const purchaseHistory = [
+  {
+    transaction_id: 1162000425617,
+    no_of_pages: 15,
+    date: '13-10-2023 12:00:00',
+    currency: '$',
+    amount: 120.0,
+    method: 'PayPal',
+    status: 'Success',
+  },
+  {
+    transaction_id: 1262000425617,
+    no_of_pages: 15,
+    date: '13-10-2023 12:00:00',
+    currency: '$',
+    amount: 120.56,
+    method: 'PayPal',
+    status: 'Failed',
+  },
+  {
+    transaction_id: 1362000425617,
+    no_of_pages: 15,
+    date: '13-10-2023 12:00:00',
+    currency: '$',
+    amount: 120.0,
+    method: 'PayPal',
+    status: 'Pending',
+  },
+  {
+    transaction_id: 1462000425617,
+    no_of_pages: 15,
+    date: '13-10-2023 12:00:00',
+    currency: '$',
+    amount: 120.0,
+    method: 'PayPal',
+    status: 'Pending',
+  },
+]
+
+export const submissionHistory = [
+  {
+    paper_id: '782465',
+    file_name: 'Akshay.docx',
+    date: '13-10-2023 12:00:00',
+    no_of_pages: 80,
+    no_of_words: '220',
+    status: 'Success',
+  },
+  {
+    paper_id: '782465',
+    file_name: 'Akshay.docx',
+    date: '13-10-2023 12:00:00',
+    no_of_pages: 80,
+    no_of_words: '220',
+    status: 'Failed',
+  },
+  {
+    paper_id: '782465',
+    file_name: 'Akshay.docx',
+    date: '13-10-2023 12:00:00',
+    no_of_pages: 80,
+    no_of_words: '220',
+    status: 'Success',
+  },
+  {
+    paper_id: '782465',
+    file_name: 'Akshay.docx',
+    date: '13-10-2023 12:00:00',
+    no_of_pages: 80,
+    no_of_words: '220',
+    status: 'Pending',
   },
 ]
