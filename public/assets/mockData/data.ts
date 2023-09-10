@@ -301,3 +301,22 @@ export const submissionHistory = [
     status: 'Pending',
   },
 ]
+
+export const accountDetails = [
+  {
+    user_id: 10245,
+    user_name: 'Akshay G.P',
+    email: 'gowda.akshay26@gmail.com',
+    phone: 8105443790,
+    registered: '07/05/2022',
+    total_purchase: 700,
+    total_submission: 236,
+    account_type: 'Personal',
+    designation: 'CEO',
+    country_code: '+91',
+    country: 'India',
+    pages_left: 464,
+    files: 16,
+    billing: '#92/4, RAC Tower, Bangalore, Karnataka, India, 560085',
+  },
+]

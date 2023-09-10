@@ -5,13 +5,18 @@ import { Card, CardContent } from '@mui/material'
 
 interface ICardViewprops {
   children: React.JSX.Element
-  height?: number
+  cardClassName?: string
+  cardContentClassName?: string
 }
 
-const CardView = ({ children, height }: ICardViewprops) => {
+const CardView = ({
+  children,
+  cardClassName,
+  cardContentClassName,
+}: ICardViewprops) => {
   return (
-    <Card style={{ height }}>
-      <CardContent>{children}</CardContent>
+    <Card className={cardClassName}>
+      <CardContent className={cardContentClassName}>{children}</CardContent>
     </Card>
   )
 }
