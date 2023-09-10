@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {
   Avatar,
   Divider,
@@ -68,7 +69,7 @@ export const ProfileMenuList = ({
         />
       </MenuItem>
       {profileData?.map((item) => (
-        <>
+        <Link href={item.href}>
           <Divider />
           <MenuItem className="pt0-pl1">
             <ListItemIcon>
@@ -83,7 +84,7 @@ export const ProfileMenuList = ({
               secondary={item.secondary}
             />
           </MenuItem>
-        </>
+        </Link>
       ))}
       <Divider />
       <MenuItem className="mt-18">
