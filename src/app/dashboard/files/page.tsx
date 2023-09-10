@@ -1,8 +1,9 @@
 'use client'
 
 import { Divider, Typography } from '@mui/material'
-import { Navbar, BreadCrumb } from '@/app/components'
+import { BreadCrumb } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
+
 import '../dashboard.scss'
 
 const FilesBreadCrumb = [
@@ -20,18 +21,15 @@ const FilesBreadCrumb = [
 
 const Files = () => {
   return (
-    <div>
-      <Navbar />
-      <div className="dashboard">
-        <div className="page-container">
-          <div style={{ marginBottom: '0.5rem' }}>
-            <BreadCrumb item={FilesBreadCrumb} />
-          </div>
-          <Typography variant="h2">Files(16)</Typography>
-          <Divider />
-          <div className="container">
-            <File />
-          </div>
+    <div className="dashboard">
+      <div className="page-container">
+        <div style={{ marginBottom: '0.5rem' }}>
+          <BreadCrumb item={FilesBreadCrumb} />
+        </div>
+        <Typography variant="h2">Files(16)</Typography>
+        <Divider />
+        <div className="container">
+          <File />
         </div>
       </div>
     </div>

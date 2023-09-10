@@ -3,6 +3,7 @@
 import './globals.css'
 import { DM_Sans } from 'next/font/google'
 import { ThemeProvider } from '@mui/material/styles'
+import { Navbar } from '@/app/components'
 import theme from './theme/theme'
 
 const DMSans = DM_Sans({
@@ -29,7 +30,10 @@ export default function RootLayout({
         content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1"
       />
       <body className={DMSans.className}>
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

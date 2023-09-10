@@ -1,7 +1,7 @@
 'use client'
 
 import { Divider, Grid, Typography } from '@mui/material'
-import { Navbar, BreadCrumb } from '@/app/components'
+import { BreadCrumb } from '@/app/components'
 import { Folder } from '@/app/dashboard/PageView/FolderView'
 import '../dashboard.scss'
 
@@ -28,20 +28,17 @@ const Folders = () => {
     ))
 
   return (
-    <div>
-      <Navbar />
-      <div className="dashboard">
-        <div className="page-container">
-          <div style={{ marginBottom: '0.5rem' }}>
-            <BreadCrumb item={FilesBreadCrumb} />
-          </div>
-          <Typography variant="h2">Folder(18)</Typography>
-          <Divider />
-          <div className="container">
-            <Grid container item spacing={2}>
-              {FolderViewContainer}
-            </Grid>
-          </div>
+    <div className="dashboard">
+      <div className="page-container">
+        <div style={{ marginBottom: '0.5rem' }}>
+          <BreadCrumb item={FilesBreadCrumb} />
+        </div>
+        <Typography variant="h2">Folder(18)</Typography>
+        <Divider />
+        <div className="container">
+          <Grid container item spacing={2}>
+            {FolderViewContainer}
+          </Grid>
         </div>
       </div>
     </div>
