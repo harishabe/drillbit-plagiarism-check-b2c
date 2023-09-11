@@ -11,14 +11,14 @@ import {
   IconButton,
   Grid,
 } from '@mui/material'
-import { DialogModal } from '@/app/components'
+import { DialogModal, FormComponent } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
 import { Folder } from '@/app/dashboard/PageView/FolderView'
 import {
   Add as AddIcon,
   SettingsOutlined as SettingsOutlinedIcon,
 } from '@mui/icons-material'
-
+import FormJson from '@/app/constant/form/folderFileSettings.json'
 import '../dashboard/dashboard.scss'
 
 const Dashboard = () => {
@@ -101,9 +101,11 @@ const Dashboard = () => {
           headingTitle="File Settings"
           maxWidth={'xs'}
           children={
-            <>
-              <div>File settings</div>
-            </>
+            FormJson
+              ? FormJson.map((field) => (
+                  <FormComponent key={field.id} field={field} />
+                ))
+              : null
           }
           handleClose={handleClose}
         />
@@ -114,9 +116,11 @@ const Dashboard = () => {
           headingTitle="Folder Settings"
           maxWidth={'xs'}
           children={
-            <>
-              <div>Folder settings</div>
-            </>
+            FormJson
+              ? FormJson.map((field) => (
+                  <FormComponent key={field.id} field={field} />
+                ))
+              : null
           }
           handleClose={handleClose}
         />

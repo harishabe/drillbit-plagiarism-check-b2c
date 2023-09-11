@@ -1,10 +1,10 @@
 'use client'
 import React, { useState } from 'react'
 import { Divider, Typography, Tooltip, IconButton, Grid } from '@mui/material'
-import { BreadCrumb, DialogModal } from '@/app/components'
+import { BreadCrumb, DialogModal, FormComponent } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
-
+import FormJson from '@/app/constant/form/folderFileSettings.json'
 import '../dashboard.scss'
 
 const FilesBreadCrumb = [
@@ -58,9 +58,11 @@ const Files = () => {
             headingTitle="File Settings"
             maxWidth={'xs'}
             children={
-              <>
-                <div>File settings</div>
-              </>
+              FormJson
+                ? FormJson.map((field) => (
+                    <FormComponent key={field.id} field={field} />
+                  ))
+                : null
             }
             handleClose={handleClose}
           />
