@@ -24,21 +24,21 @@ export const fileData = [
     fileType: 'word',
     FileLogo: File,
     language: 'Kannada',
-    percentage: 10,
+    percentage: 10, 
   },
   {
     name: 'Thesis evaluvation',
     fileType: 'pdf',
     FileLogo: FileWord,
     language: 'Tamil',
-    percentage: 18,
+    percentage: 18, 
   },
   {
     name: 'Drill plagiarismplagiarismplagiarism',
     fileType: 'doc',
     FileLogo: File,
     language: 'Telugu',
-    percentage: 80,
+    percentage: 80, 
   },
   {
     name: 'Cobol program',
@@ -66,7 +66,7 @@ export const fileData = [
     fileType: 'word',
     FileLogo: File,
     language: 'Kannada',
-    percentage: 10,
+    percentage: 10, 
   },
   {
     name: 'Thesis evaluvation',
@@ -94,7 +94,7 @@ export const fileData = [
     fileType: 'pdf',
     FileLogo: FileWord,
     language: 'Tamil',
-    percentage: 18,
+    percentage: 18,   
   },
 ]
 
@@ -103,51 +103,61 @@ export const folderData = [
     name: 'Java language...',
     createdDate: '01/09/2023',
     count: 2,
+    href: '/dashboard/folders/folderSubmission'
   },
   {
     name: 'Java language...',
     createdDate: '01/09/2023',
     count: 200,
+    href: '/dashboard/folders/folderSubmission'
   },
   {
     name: 'Java language...',
     createdDate: '01/09/2023',
     count: 28,
+    href: '/dashboard/folders/folderSubmission'
   },
   {
     name: 'Java language...',
     createdDate: '01/09/2023',
     count: 22,
+    href: '/dashboard/folders/folderSubmission'
   },
   {
     name: 'Java language...',
     createdDate: '01/09/2023',
     count: 36,
+    href: '/dashboard/folders/folderSubmission'
   },
   {
     name: 'Java language...',
     createdDate: '01/09/2023',
     count: 27,
+    href: '/dashboard/folders/folderSubmission'
   },
   {
     name: 'Java language...',
     createdDate: '01/09/2023',
     count: 56,
+    href: '/dashboard/folders/folderSubmission'
   },
   {
     name: 'Java language...',
     createdDate: '01/09/2023',
     count: 82,
+    href: '/dashboard/folders/folderSubmission'
   },
   {
     name: 'Java language...',
     createdDate: '01/09/2023',
     count: 52,
+    href: '/dashboard/folders/folderSubmission'
   },
   {
     name: 'Java language...',
     createdDate: '01/09/2023',
     count: 32,
+    href: '/dashboard/folders/folderSubmission'
   },
 ]
 
