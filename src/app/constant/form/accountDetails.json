@@ -1,0 +1,36 @@
+[
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "User name *",
+    "type": "text",
+    "name": "filter"
+  },
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "Email ID *",
+    "type": "text",
+    "name": "sort"
+  },
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "Account Type *",
+    "type": "text",
+    "name": "sort"
+  },
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "Designation *",
+    "type": "text",
+    "name": "sort"
+  },
+  {
+    "id": "signInButton",
+    "fieldType": "button",
+    "label": "Edit Account",
+    "type": "submit"
+  }
+]

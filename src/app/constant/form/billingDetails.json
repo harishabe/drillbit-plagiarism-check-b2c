@@ -1,0 +1,43 @@
+[
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "Street / Area *",
+    "type": "text",
+    "name": "filter"
+  },
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "City *",
+    "type": "text",
+    "name": "filter"
+  },
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "State *",
+    "type": "text",
+    "name": "filter"
+  },
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "Country *",
+    "type": "text",
+    "name": "filter"
+  },
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "Pin Code *",
+    "type": "text",
+    "name": "sort"
+  },
+  {
+    "id": "signInButton",
+    "fieldType": "button",
+    "label": "Edit Billing",
+    "type": "submit"
+  }
+]

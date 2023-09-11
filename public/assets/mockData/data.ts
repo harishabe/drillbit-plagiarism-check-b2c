@@ -317,6 +317,14 @@ export const accountDetails = [
     country: 'India',
     pages_left: 464,
     files: 16,
-    billing: '#92/4, RAC Tower, Bangalore, Karnataka, India, 560085',
+    billing: [
+      {
+        street: '#92/4 , 80 feet Main road',
+        city: 'Bangalore (Urban)',
+        state: 'Karnataka',
+        country: 'India',
+        zip_code: '560085',
+      },
+    ],
   },
 ]

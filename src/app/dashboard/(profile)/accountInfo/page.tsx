@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Grid,
   Button,
@@ -23,15 +23,35 @@ import {
   AccountCircleOutlined as AccountCircleOutlinedIcon,
   WorkspacePremiumOutlined as WorkspacePremiumOutlinedIcon,
   LanguageOutlined as LanguageOutlinedIcon,
+  SignpostOutlined as SignpostOutlinedIcon,
+  LocationCityOutlined as LocationCityOutlinedIcon,
+  FestivalOutlined as FestivalOutlinedIcon,
+  RoomOutlined as RoomOutlinedIcon,
 } from '@mui/icons-material'
-import { Navbar, BreadCrumb, CardView } from '@/app/components'
+import {
+  Navbar,
+  BreadCrumb,
+  CardView,
+  DialogModal,
+  FormComponent,
+} from '@/app/components'
 import { accountDetails } from 'public/assets/mockData/data'
+import BillingFormJson from '@/app/constant/form/billingDetails.json'
+import AccountFormJson from '@/app/constant/form/accountDetails.json'
 import '../../dashboard.scss'
 import './page.scss'
 
 interface IHeaderData {
   id: string
   label: string
+}
+
+interface IBillingData {
+  street: string
+  city: string
+  state: string
+  country: string
+  zip_code: string
 }
 
 interface IAccountDetails {
@@ -48,10 +68,10 @@ interface IAccountDetails {
   country: string
   pages_left: number
   files: number
-  billing: string
+  billing: IBillingData[]
 }
 
-const headerdata = [
+const accountHeaderdata = [
   { id: 'id', label: 'User ID' },
   { id: 'user_name', label: 'User Name' },
   { id: 'email', label: 'Email ID' },
@@ -62,6 +82,14 @@ const headerdata = [
   { id: 'account_type', label: 'Account Type' },
   { id: 'designation', label: 'Designation' },
   { id: 'country', label: 'Country' },
+]
+
+const billingHeaderdata = [
+  { id: 'street', label: 'Street / Area' },
+  { id: 'city', label: 'City' },
+  { id: 'state', label: 'State' },
+  { id: 'country', label: 'Country' },
+  { id: 'zip_code', label: 'Pin Code' },
 ]
 
 const AccountInfoBreadCrumb = [
@@ -78,6 +106,21 @@ const AccountInfoBreadCrumb = [
 ]
 
 const Account = () => {
+  const [isEditAccount, setIsEditAccount] = useState(false)
+  const [isEditBilling, setIsEditBilling] = useState(false)
+
+  const handleEditBilling = () => {
+    setIsEditBilling(true)
+  }
+
+  const handleEditAccount = () => {
+    setIsEditAccount(true)
+  }
+
+  const handleClose = () => {
+    setIsEditAccount(false)
+    setIsEditBilling(false)
+  }
   return (
     <div>
       <Navbar />
@@ -160,40 +203,24 @@ const Account = () => {
                   <Grid item md={8.5} sm={6} xs={12}>
                     <CardView>
                       <>
-                        <Grid container spacing={0.1}>
-                          <Grid md={11.5} sm={11.5} xs={11.5}>
-                            <Typography
-                              gutterBottom
-                              variant="h3"
-                              component="div"
+                        <Typography gutterBottom variant="h3" component="div">
+                          Account Details
+                          <Tooltip title="Edit" arrow>
+                            <IconButton
+                              onClick={handleEditAccount}
+                              size="small"
+                              className="account-edit-icon"
                             >
-                              Account Details
-                              <Divider />
-                            </Typography>
-                          </Grid>
-                          <Grid
-                            md={0.5}
-                            sm={0.5}
-                            xs={0.5}
-                            className="account-info-edit"
-                          >
-                            <Tooltip title="Edit" arrow>
-                              <IconButton
-                                onClick={() => {
-                                  return 0
-                                }}
-                                size="small"
-                              >
-                                <EditOutlinedIcon fontSize="small" />
-                              </IconButton>
-                            </Tooltip>
-                          </Grid>
-                        </Grid>
+                              <EditOutlinedIcon className="account-edit" />
+                            </IconButton>
+                          </Tooltip>
+                          <Divider />
+                        </Typography>
                         <Grid container>
-                          {headerdata?.map((column: IHeaderData) => {
+                          {accountHeaderdata?.map((column: IHeaderData) => {
                             return (
                               <>
-                                <Grid md={4} sm={12} xs={12}>
+                                <Grid md={4} sm={12} xs={6}>
                                   <Typography
                                     variant="body2"
                                     className="typo-id"
@@ -256,15 +283,67 @@ const Account = () => {
                     <div className="account-info-margin"></div>
                     <CardView>
                       <>
-                        <Grid md={11.5} sm={11.5} xs={11.5}>
-                          <Typography gutterBottom variant="h3" component="div">
-                            Billing Address
-                            <Divider />
-                          </Typography>
-                        </Grid>
-                        <Typography variant="body2" className="typo-title">
-                          {row.billing}
+                        <Typography gutterBottom variant="h3" component="div">
+                          Billing Address
+                          <Tooltip title="Edit" arrow>
+                            <IconButton
+                              onClick={handleEditBilling}
+                              size="small"
+                              className="account-edit-icon"
+                            >
+                              <EditOutlinedIcon className="account-edit" />
+                            </IconButton>
+                          </Tooltip>
+                          <Divider />
                         </Typography>
+                        <Grid container>
+                          {billingHeaderdata?.map((column: IHeaderData) => {
+                            return (
+                              <>
+                                {row?.billing?.map((data) => {
+                                  return (
+                                    <>
+                                      <Grid md={4} sm={12} xs={6}>
+                                        <Typography
+                                          variant="body2"
+                                          className="typo-id"
+                                        >
+                                          {column.label}
+                                        </Typography>
+                                        <Typography
+                                          variant="body2"
+                                          className="typo-title"
+                                        >
+                                          {column.id === 'street' && [
+                                            <SignpostOutlinedIcon className="account-detail-icon" />,
+                                            data?.street,
+                                          ]}
+                                          {column.id === 'city' && [
+                                            <LocationCityOutlinedIcon className="account-detail-icon" />,
+                                            data?.city,
+                                          ]}
+                                          {column.id === 'state' && [
+                                            <FestivalOutlinedIcon className="account-detail-icon" />,
+                                            data?.state,
+                                          ]}
+                                          {column.id === 'country' && [
+                                            <LanguageOutlinedIcon className="account-detail-icon" />,
+                                            data?.country,
+                                          ]}
+                                          {column.id === 'zip_code' && [
+                                            <RoomOutlinedIcon className="account-detail-icon" />,
+                                            data?.zip_code,
+                                          ]}
+                                        </Typography>
+                                        <div className="account-info-margin"></div>
+                                      </Grid>
+                                    </>
+                                  )
+                                })}
+                              </>
+                            )
+                          })}
+                        </Grid>
                       </>
                     </CardView>
                   </Grid>
@@ -274,6 +353,37 @@ const Account = () => {
           </div>
         </div>
       </div>
+
+      {isEditAccount && (
+        <DialogModal
+          isOpen={isEditAccount}
+          headingTitle="Account Details"
+          maxWidth={'xs'}
+          children={
+            AccountFormJson
+              ? AccountFormJson.map((field) => (
+                  <FormComponent key={field.id} field={field} />
+                ))
+              : null
+          }
+          handleClose={handleClose}
+        />
+      )}
+      {isEditBilling && (
+        <DialogModal
+          isOpen={isEditBilling}
+          headingTitle="Billing Address"
+          maxWidth={'xs'}
+          children={
+            BillingFormJson
+              ? BillingFormJson.map((field) => (
+                  <FormComponent key={field.id} field={field} />
+                ))
+              : null
+          }
+          handleClose={handleClose}
+        />
+      )}
     </div>
   )
 }
