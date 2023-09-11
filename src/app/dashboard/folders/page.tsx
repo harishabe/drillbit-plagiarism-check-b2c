@@ -5,7 +5,7 @@ import { BreadCrumb } from '@/app/components'
 import { Folder } from '@/app/dashboard/PageView/FolderView'
 import '../dashboard.scss'
 
-const FilesBreadCrumb = [
+const FolderBreadCrumb = [
   {
     name: 'Dashboard',
     link: '/dashboard',
@@ -30,7 +30,7 @@ const Folders = () => {
   return (
     <div className="dashboard">
       <div className="page-container">
-        <BreadCrumb item={FilesBreadCrumb} />
+        <BreadCrumb item={FolderBreadCrumb} />
         <Typography variant="h2">Folder(18)</Typography>
         <Divider />
         <div className="container">
@@ -42,5 +42,4 @@ const Folders = () => {
     </div>
   )
 }
-
 export default Folders
