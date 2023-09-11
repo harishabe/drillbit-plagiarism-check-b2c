@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import {
   Card,
   CardActions,
@@ -20,16 +21,18 @@ interface IFolderDataProps {
   name: string
   createdDate: string
   count: number
+  href: string
 }
 
 const FolderView = ({ folderData }: { folderData: IFolderDataProps }) => {
-  const { count, name, createdDate } = folderData
+  const { count, name, createdDate, href} = folderData
   return (
-    <Card className="folderView">
+    <Link href={href}>
+    <Card className="folderView" >
       <CardContent className="card-content">
         <div className="content-center">
           <FolderIcon />
-          <EllipsisText value={name + '(' + count + ')'} variant="body1" />
+          <EllipsisText value={name + '(' + count + ')'} variant="body1"/>
         </div>
       </CardContent>
       <CardActions>
@@ -70,6 +73,7 @@ const FolderView = ({ folderData }: { folderData: IFolderDataProps }) => {
         </div>
       </CardActions>
     </Card>
+    </Link>
   )
 }
 export default FolderView
