@@ -27,10 +27,7 @@
       }
     }
     .folder-view-all {
-      text-align: right;
-      :hover {
-        text-decoration: underline;
-      }
+      @extend .file-view-all
     }
     .mt-05 {
       margin-bottom: 0.5rem;
@@ -49,4 +46,7 @@
 }
 .mb-1 {
   margin-bottom: 1rem;
+}
+.flex {
+    display: flex;
 }
