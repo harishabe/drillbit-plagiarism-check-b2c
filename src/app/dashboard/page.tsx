@@ -1,15 +1,36 @@
 'use client'
 
+import React, { useState } from 'react'
 import Link from 'next/link'
-import { Box, Button, Divider, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  Divider,
+  Typography,
+  Tooltip,
+  IconButton,
+  Grid,
+} from '@mui/material'
+import { DialogModal, FormComponent } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
 import { Folder } from '@/app/dashboard/PageView/FolderView'
-
-import { Add as AddIcon } from '@mui/icons-material'
-
+import {
+  Add as AddIcon,
+  SettingsOutlined as SettingsOutlinedIcon,
+} from '@mui/icons-material'
+import FormJson from '@/app/constant/form/folderFileSettings.json'
 import '../dashboard/dashboard.scss'
 
 const Dashboard = () => {
+  const [isFile, setIsFile] = useState(false)
+
+  const handleFileSettings = () => {
+    setIsFile(true)
+  }
+
+  const handleClose = () => {
+    setIsFile(false)
+  }
   return (
     <div className="dashboard">
       <div className="add-btn-container">
@@ -21,7 +42,21 @@ const Dashboard = () => {
       </div>
       <div className="dashboard-page-container">
         <Box>
-          <Typography variant="h2">File(16)</Typography>
+          <Typography variant="h2" className="flex">
+            <Grid container>
+              <Grid md={11.7} sm={11.7}>
+                Files(16)
+              </Grid>
+              <Grid md={0.3} sm={0.3}>
+                <Tooltip title="File Settings" arrow>
+                  <IconButton onClick={handleFileSettings} size="small">
+                    <SettingsOutlinedIcon fontSize="small" />
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+            </Grid>
+          </Typography>
+
           <Divider />
           <div className="container">
             <File />
@@ -43,6 +78,21 @@ const Dashboard = () => {
           </div>
         </Box>
       </div>
+      {isFile && (
+        <DialogModal
+          isOpen={isFile}
+          headingTitle="File Settings"
+          maxWidth={'xs'}
+          children={
+            FormJson
+              ? FormJson.map((field) => (
+                  <FormComponent key={field.id} field={field} />
+                ))
+              : null
+          }
+          handleClose={handleClose}
+        />
+      )}
     </div>
   )
 }

@@ -1,47 +1,50 @@
 'use client'
+
 import React, { useState } from 'react'
 import { Divider, Typography, Tooltip, IconButton, Grid } from '@mui/material'
 import { BreadCrumb, DialogModal, FormComponent } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
+import { SettingsOutlined as SettingsOutlinedIcon } from '@mui/icons-material'
 import FormJson from '@/app/constant/form/folderFileSettings.json'
-import '../dashboard.scss'
+import '../../dashboard.scss'
 
-const FilesBreadCrumb = [
+const submissionBreadCrumb = [
   {
     name: 'Dashboard',
     link: '/dashboard',
     active: false,
   },
+
   {
-    name: `Files`,
+    name: `Folder submission`,
     link: '',
     active: true,
   },
 ]
 
-const Files = () => {
-  const [isOpen, setIsOpen] = useState(false)
+const FolderSubmission = () => {
+  const [isFolder, setIsFolder] = useState(false)
 
-  const handleSettings = () => {
-    setIsOpen(true)
+  const handleFolderSettings = () => {
+    setIsFolder(true)
   }
+
   const handleClose = () => {
-    setIsOpen(false)
+    setIsFolder(false)
   }
 
   return (
     <div className="dashboard">
       <div className="page-container">
-        <BreadCrumb item={FilesBreadCrumb} />
+        <BreadCrumb item={submissionBreadCrumb} />
         <Typography variant="h2" className="flex">
           <Grid container>
             <Grid md={11.7} sm={11.7}>
               Files(16)
             </Grid>
             <Grid md={0.3} sm={0.3}>
-              <Tooltip title="File Setting" arrow>
-                <IconButton onClick={handleSettings} size="small">
+              <Tooltip title="Folder Settings" arrow>
+                <IconButton onClick={handleFolderSettings} size="small">
                   <SettingsOutlinedIcon fontSize="small" />
                 </IconButton>
               </Tooltip>
@@ -52,24 +55,24 @@ const Files = () => {
         <div className="container">
           <File />
         </div>
-        {isOpen && (
-          <DialogModal
-            isOpen={isOpen}
-            headingTitle="File Settings"
-            maxWidth={'xs'}
-            children={
-              FormJson
-                ? FormJson.map((field) => (
-                    <FormComponent key={field.id} field={field} />
-                  ))
-                : null
-            }
-            handleClose={handleClose}
-          />
-        )}
       </div>
+      {isFolder && (
+        <DialogModal
+          isOpen={isFolder}
+          headingTitle="Folder Settings"
+          maxWidth={'xs'}
+          children={
+            FormJson
+              ? FormJson.map((field) => (
+                  <FormComponent key={field.id} field={field} />
+                ))
+              : null
+          }
+          handleClose={handleClose}
+        />
+      )}
     </div>
   )
 }
 
-export default Files
+export default FolderSubmission

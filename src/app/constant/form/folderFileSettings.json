@@ -1,0 +1,22 @@
+[
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "Name *",
+    "type": "text",
+    "name": "filter"
+  },
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "Document *",
+    "type": "text",
+    "name": "sort"
+  },
+  {
+    "id": "signInButton",
+    "fieldType": "button",
+    "label": "Edit",
+    "type": "submit"
+  }
+]
