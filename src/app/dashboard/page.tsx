@@ -23,17 +23,13 @@ import '../dashboard/dashboard.scss'
 
 const Dashboard = () => {
   const [isFile, setIsFile] = useState(false)
-  const [isFolder, setIsFolder] = useState(false)
 
   const handleFileSettings = () => {
     setIsFile(true)
   }
-  const handleFolderSettings = () => {
-    setIsFolder(true)
-  }
+
   const handleClose = () => {
     setIsFile(false)
-    setIsFolder(false)
   }
   return (
     <div className="dashboard">
@@ -70,20 +66,7 @@ const Dashboard = () => {
               </Link>
             </div>
           </div>
-          <Typography variant="h2" className="flex">
-            <Grid container>
-              <Grid md={11.7} sm={11.7}>
-                Folder(18)
-              </Grid>
-              <Grid md={0.3} sm={0.3}>
-                <Tooltip title="Folder Settings" arrow>
-                  <IconButton onClick={handleFolderSettings} size="small">
-                    <SettingsOutlinedIcon fontSize="small" />
-                  </IconButton>
-                </Tooltip>
-              </Grid>
-            </Grid>
-          </Typography>
+          <Typography variant="h2">Folder(18)</Typography>
           <Divider />
           <div className="container">
             <Folder />
@@ -99,21 +82,6 @@ const Dashboard = () => {
         <DialogModal
           isOpen={isFile}
           headingTitle="File Settings"
-          maxWidth={'xs'}
-          children={
-            FormJson
-              ? FormJson.map((field) => (
-                  <FormComponent key={field.id} field={field} />
-                ))
-              : null
-          }
-          handleClose={handleClose}
-        />
-      )}
-      {isFolder && (
-        <DialogModal
-          isOpen={isFolder}
-          headingTitle="Folder Settings"
           maxWidth={'xs'}
           children={
             FormJson
