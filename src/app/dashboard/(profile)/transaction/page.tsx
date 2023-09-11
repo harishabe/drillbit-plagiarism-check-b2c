@@ -26,9 +26,7 @@ const TransactionHistory = () => {
   return (
     <div className="dashboard">
       <div className="page-container">
-        <div className="mt-05">
-          <BreadCrumb item={TransactionBreadCrumb} />
-        </div>
+        <BreadCrumb item={TransactionBreadCrumb} />
         <div className="container">
           <TabMenu menuButton={tabMenuItems} components={components} />
         </div>

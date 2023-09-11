@@ -19,7 +19,7 @@ const Dashboard = () => {
           </Button>
         </div>
       </div>
-      <div className="page-container">
+      <div className="dashboard-page-container">
         <Box>
           <Typography variant="h2">File(16)</Typography>
           <Divider />

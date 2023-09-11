@@ -3,7 +3,7 @@
 import './globals.css'
 import { DM_Sans } from 'next/font/google'
 import { ThemeProvider } from '@mui/material/styles'
-import { Navbar } from '@/app/components'
+// import { Navbar } from '@/app/components'
 import theme from './theme/theme'
 
 const DMSans = DM_Sans({
@@ -31,7 +31,7 @@ export default function RootLayout({
       />
       <body className={DMSans.className}>
         <ThemeProvider theme={theme}>
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
         </ThemeProvider>
       </body>

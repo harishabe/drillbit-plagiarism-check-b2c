@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, ReactNode, SyntheticEvent } from 'react'
-import { Tab, Tabs, Box } from '@mui/material'
+import { Tab, Tabs, Box, Divider } from '@mui/material'
 import '../component.scss'
 
 interface TabPanelProps {
@@ -63,6 +63,7 @@ const TabMenu = ({ menuButton, components }: ITabmenu) => {
           </CustomTabPanel>
         )
       })}
+      <Divider />
     </Box>
   )
 }

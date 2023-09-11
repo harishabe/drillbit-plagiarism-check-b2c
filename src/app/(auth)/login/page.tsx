@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { Grid, Typography } from '@mui/material'
 import { DrillBitLogo } from 'public/assets'
 import { FormComponent } from '@/app/components'
@@ -8,6 +9,12 @@ import './page.scss'
 import FormJson from '@/app/constant/form/loginForm.json'
 
 const Login = () => {
+  const router = useRouter()
+
+  const handleSubmit = () => {
+    router.push('/dashboard')
+  }
+
   return (
     <div className="login">
       <Grid container spacing={3}>
@@ -17,7 +24,7 @@ const Login = () => {
             <div className="image-contaner">
               <div className="form-container">
                 <Typography variant="h1">Welcome to DrillBit</Typography>
-                <form style={{ marginTop: '1rem' }}>
+                <form onClick={handleSubmit}>
                   {FormJson
                     ? FormJson.map((field) => (
                         <FormComponent key={field.id} field={field} />

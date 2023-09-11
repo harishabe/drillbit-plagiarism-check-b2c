@@ -5,7 +5,7 @@
     width: 100%;
     position: fixed;
     z-index: 5;
-    transition: 'box-shadow .1s';
+    transition: box-shadow 0.1s;
     .btn {
       padding-left: 45px;
       padding-top: 12px;
@@ -36,12 +36,17 @@
       margin-bottom: 0.5rem;
     }
   }
+
+  .dashboard-page-container {
+    @extend .page-container;
+    padding: 8.5rem 3rem 3rem 3rem;
+  }
 }
-.link-title{
-    margin-top: 1.25rem;
-    font-weight: 500;
-    text-decoration: underline
+.link-title {
+  margin-top: 1.25rem;
+  font-weight: 500;
+  text-decoration: underline;
 }
 .mb-1 {
-      margin-bottom: 1rem
+  margin-bottom: 1rem;
 }

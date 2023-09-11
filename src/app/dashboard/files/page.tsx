@@ -23,9 +23,7 @@ const Files = () => {
   return (
     <div className="dashboard">
       <div className="page-container">
-        <div style={{ marginBottom: '0.5rem' }}>
-          <BreadCrumb item={FilesBreadCrumb} />
-        </div>
+        <BreadCrumb item={FilesBreadCrumb} />
         <Typography variant="h2">Files(16)</Typography>
         <Divider />
         <div className="container">

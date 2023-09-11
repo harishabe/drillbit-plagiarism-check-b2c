@@ -17,7 +17,7 @@
     "id": "linkField",
     "fieldType": "linkField",
     "align": "right",
-    "path": "/auth/forgot-password",
+    "path": "/forgot-password",
     "label": "Forgot Password?"
   },
   {

@@ -1,12 +1,13 @@
-import Link from 'next/link'
-import { DrillBitLogo } from '../../public/assets'
+'use client'
+
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
-  return (
-    <main>
-      <Link href="/login">Login</Link>
-      <h1>Welcome to drillbit plagiarism check B2C</h1>
-      <DrillBitLogo />
-    </main>
-  )
+  const router = useRouter()
+
+  useEffect(() => {
+    router.push('/login')
+  })
+  return <div />
 }

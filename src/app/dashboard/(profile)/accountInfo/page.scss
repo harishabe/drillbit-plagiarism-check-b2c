@@ -1,63 +1,65 @@
-.flex {
+.account-info {
+  .flex {
     display: flex;
-}
+  }
 
-.flex-center{
-  @extend .flex;
-  align-items: center;
-  justify-content: center;
-}
+  .flex-center {
+    @extend .flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.account-info-1 {
-  height: fit-content;
-  @extend .flex-center;
-}
+  .account-info-1 {
+    height: fit-content;
+    @extend .flex-center;
+  }
 
-.account-info-padding {
-  padding: 0.45rem;
-}
+  .account-info-padding {
+    padding: 0.45rem;
+  }
 
-.account-info-margin {
-  margin: 0.9375rem;
-}
+  .account-info-margin {
+    margin: 0.9375rem;
+  }
 
-.account-info-edit {
-    text-align: end
-}
-.account-info-profile-avatar {
-  width: 6.5rem;
-  height: 6.5rem;
-  background-color: #68c886;
-  color: #fff;
-  font-size: small;
-  font-weight: 700;
-  @extend .flex-center;
-}
+  .account-info-edit {
+    text-align: end;
+  }
+  .account-info-profile-avatar {
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: #68c886;
+    color: #fff;
+    font-size: small;
+    font-weight: 700;
+    @extend .flex-center;
+  }
 
-.account-detail-icon {
+  .account-detail-icon {
     margin-right: 0.25rem;
     font-size: 1.125rem;
-}
+  }
 
-.profile-detail-icon {
+  .profile-detail-icon {
     font-size: 2.5rem;
-}
+  }
 
-.typo-id {
+  .typo-id {
     font-size: 0.688rem;
     margin-bottom: 0.15rem;
-}
+  }
 
-.typo-title {
+  .typo-title {
     font-size: 0.875rem;
     font-weight: 600;
     @extend .flex;
-}
+  }
 
-.delele-account {
+  .delele-account {
     background-color: #fe6969;
-}
+  }
 
-.delele-account:hover {
-    background-color: #FC5E5E;
+  .delele-account:hover {
+    background-color: #fc5e5e;
+  }
 }
