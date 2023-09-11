@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import {
   Card,
   CardActions,
@@ -8,31 +7,45 @@ import {
   IconButton,
   Tooltip,
 } from '@mui/material'
+
+import {
+  FileDownloadOutlined as FileDownloadOutlinedIcon,
+  DeleteOutlined as DeleteIcon,
+  InfoOutlined as InfoOutlinedIcon,
+} from '@mui/icons-material'
+
 import { FolderIcon } from 'public/assets'
 import { EllipsisText } from '@/app/components'
-
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
-import DeleteIcon from '@mui/icons-material/DeleteOutlined'
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 
 import './view.scss'
 
 interface IFolderDataProps {
   name: string
-  createdDate: string
   count: number
-  href: string
 }
 
-const FolderView = ({ folderData }: { folderData: IFolderDataProps }) => {
-  const { count, name, createdDate, href} = folderData
+const FolderView = ({
+  folderData,
+  isLink,
+  handleNavigate,
+}: {
+  folderData: IFolderDataProps
+  isLink: boolean
+  handleNavigate: () => void
+}) => {
+  const { count, name } = folderData
+
   return (
-    <Link href={href}>
-    <Card className="folderView" >
+    <Card className="folderView">
       <CardContent className="card-content">
         <div className="content-center">
           <FolderIcon />
-          <EllipsisText value={name + '(' + count + ')'} variant="body1"/>
+          <EllipsisText
+            value={name + '(' + count + ')'}
+            variant="body1"
+            isLink={isLink}
+            handleNavigate={handleNavigate}
+          />
         </div>
       </CardContent>
       <CardActions>
@@ -73,7 +86,6 @@ const FolderView = ({ folderData }: { folderData: IFolderDataProps }) => {
         </div>
       </CardActions>
     </Card>
-    </Link>
   )
 }
 export default FolderView

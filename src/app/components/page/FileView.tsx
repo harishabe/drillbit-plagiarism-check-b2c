@@ -1,5 +1,7 @@
 'use client'
+
 import React, { useState } from 'react'
+import Link from 'next/link'
 import {
   Card,
   CardActions,
@@ -8,12 +10,13 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material'
-import Link from 'next/link'
 import { DeleteWarningIcon, DownloadWarningIcon } from 'public/assets'
 import { WarningDialog } from '@/app/components'
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
-import DeleteIcon from '@mui/icons-material/DeleteOutlined'
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
+import {
+  FileDownloadOutlined as FileDownloadOutlinedIcon,
+  DeleteOutlined as DeleteIcon,
+  InfoOutlined as InfoOutlinedIcon,
+} from '@mui/icons-material'
 
 import { EllipsisText } from '@/app/components'
 
@@ -63,9 +66,7 @@ const FileView = ({ fileData }: { fileData: IFileData }) => {
             <Link href="">{fileData.percentage}%</Link>
           </Typography>
           <Typography variant="body2">{fileData.language}</Typography>
-          <Typography variant="body1">
-            <EllipsisText value={fileData.name} />
-          </Typography>
+          <EllipsisText value={fileData.name} variant="body1" />
         </div>
       </CardContent>
       <CardActions>
@@ -105,24 +106,22 @@ const FileView = ({ fileData }: { fileData: IFileData }) => {
           </Tooltip>
         </div>
       </CardActions>
-      {showDeleteWarning && (
-        <WarningDialog
-          warningIcon={<DeleteWarningIcon />}
-          message="Are you sure you want to delete ?"
-          handleYes={handleYesDeleteWarning}
-          handleNo={handleCloseDeleteWarning}
-          isOpen={true}
-        />
-      )}
-      {showDownloadWarning && (
-        <WarningDialog
-          warningIcon={<DownloadWarningIcon />}
-          message="Are you sure you want to download ?"
-          handleYes={handleYesDownloadWarning}
-          handleNo={handleCloseDownloadWarning}
-          isOpen={true}
-        />
-      )}
+
+      <WarningDialog
+        warningIcon={<DeleteWarningIcon />}
+        message="Are you sure you want to delete ?"
+        handleYes={handleYesDeleteWarning}
+        handleNo={handleCloseDeleteWarning}
+        isOpen={showDeleteWarning}
+      />
+
+      <WarningDialog
+        warningIcon={<DownloadWarningIcon />}
+        message="Are you sure you want to download ?"
+        handleYes={handleYesDownloadWarning}
+        handleNo={handleCloseDownloadWarning}
+        isOpen={showDownloadWarning}
+      />
     </Card>
   )
 }

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import {
   Box,
   Button,
@@ -11,17 +12,24 @@ import {
   IconButton,
   Grid,
 } from '@mui/material'
-import { DialogModal, FormComponent } from '@/app/components'
-import { File } from '@/app/dashboard/PageView/FileView'
-import { Folder } from '@/app/dashboard/PageView/FolderView'
+import {
+  DialogModal,
+  FileView,
+  FolderView,
+  FormComponent,
+} from '@/app/components'
 import {
   Add as AddIcon,
   SettingsOutlined as SettingsOutlinedIcon,
 } from '@mui/icons-material'
+import { fileData } from 'public/assets/mockData/data'
+import { folderData } from 'public/assets/mockData/data'
 import FormJson from '@/app/constant/form/folderFileSettings.json'
 import '../dashboard/dashboard.scss'
 
 const Dashboard = () => {
+  const router = useRouter()
+
   const [isFile, setIsFile] = useState(false)
 
   const handleFileSettings = () => {
@@ -31,6 +39,11 @@ const Dashboard = () => {
   const handleClose = () => {
     setIsFile(false)
   }
+
+  const handleNavigate = () => {
+    router.push('/dashboard/files')
+  }
+
   return (
     <div className="dashboard">
       <div className="add-btn-container">
@@ -59,17 +72,34 @@ const Dashboard = () => {
 
           <Divider />
           <div className="container">
-            <File />
+            <Grid container item spacing={2}>
+              {fileData?.map((item, key) => (
+                <Grid key={key} item xs={6} sm={4} md={3} lg={1.5}>
+                  <FileView fileData={item} />
+                </Grid>
+              ))}
+            </Grid>
             <div className="file-view-all">
               <Link href="/dashboard/files">
                 <Typography variant="body1">View All</Typography>
               </Link>
             </div>
           </div>
+
           <Typography variant="h2">Folder(18)</Typography>
           <Divider />
           <div className="container">
-            <Folder />
+            <Grid container item spacing={2}>
+              {folderData?.map((item, key) => (
+                <Grid key={key} item xs={6} sm={4} md={3} lg={1.5}>
+                  <FolderView
+                    folderData={item}
+                    isLink={true}
+                    handleNavigate={handleNavigate}
+                  />
+                </Grid>
+              ))}
+            </Grid>
             <div className="folder-view-all">
               <Link href="/dashboard/folders">
                 <Typography variant="body1">View All</Typography>
@@ -78,21 +108,19 @@ const Dashboard = () => {
           </div>
         </Box>
       </div>
-      {isFile && (
-        <DialogModal
-          isOpen={isFile}
-          headingTitle="File Settings"
-          maxWidth={'xs'}
-          children={
-            FormJson
-              ? FormJson.map((field) => (
-                  <FormComponent key={field.id} field={field} />
-                ))
-              : null
-          }
-          handleClose={handleClose}
-        />
-      )}
+
+      <DialogModal
+        isOpen={isFile}
+        headingTitle="File Settings"
+        maxWidth={'xs'}
+        handleClose={handleClose}
+      >
+        {FormJson
+          ? FormJson.map((field) => (
+              <FormComponent key={field.id} field={field} />
+            ))
+          : null}
+      </DialogModal>
     </div>
   )
 }

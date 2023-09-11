@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { Typography, Tooltip, TypographyTypeMap } from '@mui/material'
+import { Typography, Tooltip, TypographyTypeMap, Link } from '@mui/material'
 
 import '../component.scss'
 
@@ -9,9 +9,15 @@ interface EllipsisTextProps {
   value: string
   isLink?: boolean
   variant?: TypographyTypeMap['props']['variant']
+  handleNavigate?: () => void
 }
 
-const EllipsisText = ({ value, isLink, variant }: EllipsisTextProps) => {
+const EllipsisText = ({
+  value,
+  isLink,
+  variant,
+  handleNavigate,
+}: EllipsisTextProps) => {
   const textElement = useRef<HTMLDivElement | null>(null)
   const [overflowed, setOverflowed] = useState<boolean>(false)
 
@@ -36,15 +42,16 @@ const EllipsisText = ({ value, isLink, variant }: EllipsisTextProps) => {
       {isLink ? (
         <Tooltip title={overflowed ? value : ''} arrow>
           <div className="ellipsisFlex">
-            <Typography
+            <Link
               variant={variant || 'body1'}
               ref={textElement}
               component="div"
               onMouseEnter={checkTextOverflow}
               className="linkFieldEllipsis"
+              onClick={handleNavigate}
             >
               {value}
-            </Typography>
+            </Link>
           </div>
         </Tooltip>
       ) : (
