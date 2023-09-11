@@ -2,6 +2,14 @@
 
 import { FolderView } from '@/app/components'
 
+import '../dashboard.scss'
+
 export const Folder = () => {
-  return <FolderView />
+
+  return(
+    <div className='file-folder'>
+      <FolderView />
+    </div>
+
+  ) 
 }

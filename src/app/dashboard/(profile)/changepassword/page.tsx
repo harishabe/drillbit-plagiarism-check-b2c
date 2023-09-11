@@ -14,7 +14,7 @@ const PasswordBreadCrumb = [
     active: false,
   },
   {
-    name: `changepassword`,
+    name: `ChangePassword`,
     link: '',
     active: true,
   },
@@ -26,17 +26,16 @@ const Changepassword = () => {
   return (
     <div className="changepassword">
     <Navbar />
-    <div style={{ marginBottom: '0.5rem' }}>
-            <BreadCrumb item={PasswordBreadCrumb} />
+    <div className="breadcrumb">
+        <BreadCrumb item={PasswordBreadCrumb} />
     </div>
-    <Card >
-    <CardContent>
+    <Card className='change-pwd-card'>
+    <CardContent >
     <Grid container spacing={3}>
       <Grid item md={12} xs={12} sm={12}>
-        <div className="background">
             <div className="form-container">
               <Typography variant="h1">Change Password</Typography>
-              <form style={{ marginTop: '1rem'}}>
+              <form className="passwordJson">
                 {PasswordJson
                   ? PasswordJson.map((field) => (
                       <FormComponent key={field.id} field={field} />
@@ -44,11 +43,9 @@ const Changepassword = () => {
                   : null}
               </form>
             </div>
-          </div>
        
       </Grid>
     </Grid>
-       
     </CardContent>
   </Card>
   </div>

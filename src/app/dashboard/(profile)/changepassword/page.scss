@@ -2,20 +2,27 @@
     width: 30rem;
     padding: 5rem;
     padding-left: 3rem;
+   
+    .breadcrumb{
+      margin-bottom: 0.5rem;
+    }
+
+    .change-pwd-card:hover {
+      width: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease-in-out;
+      transform: scale(1.02) translateZ(20px); 
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
     
- 
-    .image-contaner {
-      display: flex;
-      -webkit-box-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
-      justify-content: left;
-      .form-container {
-        width: 80%;
-        padding: 5%;
-      }
+    .passwordJson{
+      margin-top: 1rem;
     }
     
+    
 }
+
+
 
   

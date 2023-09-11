@@ -1,7 +1,24 @@
-.help{
-    width: 20rem;
-    padding: 5rem;
-    padding-left: 3rem;
-    
+
+.help {
+  width: 20rem;
+  padding: 5rem;
+   padding-left: 3rem;
+  
 }
+.help-card:hover{
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.05) translateZ(20px); 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.breadcrumb{
+   margin-bottom: 0.5rem;
+}
+
+
+
+
+
 

@@ -115,12 +115,12 @@ export const profileData = [
     primary: 'Help',
     icon: HelpIcon,
     secondary: 'PDF / Video',
-    href: 'dashboard/help',
+    href: '/dashboard/help',
   },
   {
     primary: 'Change password',
     icon: ChangePwdIcon,
     secondary: 'Email',
-    href: 'dashboard/changepassword',
+    href: '/dashboard/changepassword',
   },
 ]
