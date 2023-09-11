@@ -1,15 +1,40 @@
 'use client'
 
+import React, { useState } from 'react'
 import Link from 'next/link'
-import { Box, Button, Divider, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  Divider,
+  Typography,
+  Tooltip,
+  IconButton,
+  Grid,
+} from '@mui/material'
+import { DialogModal } from '@/app/components'
 import { File } from '@/app/dashboard/PageView/FileView'
 import { Folder } from '@/app/dashboard/PageView/FolderView'
-
-import { Add as AddIcon } from '@mui/icons-material'
+import {
+  Add as AddIcon,
+  SettingsOutlined as SettingsOutlinedIcon,
+} from '@mui/icons-material'
 
 import '../dashboard/dashboard.scss'
 
 const Dashboard = () => {
+  const [isFile, setIsFile] = useState(false)
+  const [isFolder, setIsFolder] = useState(false)
+
+  const handleFileSettings = () => {
+    setIsFile(true)
+  }
+  const handleFolderSettings = () => {
+    setIsFolder(true)
+  }
+  const handleClose = () => {
+    setIsFile(false)
+    setIsFolder(false)
+  }
   return (
     <div className="dashboard">
       <div className="add-btn-container">
@@ -21,7 +46,21 @@ const Dashboard = () => {
       </div>
       <div className="dashboard-page-container">
         <Box>
-          <Typography variant="h2">File(16)</Typography>
+          <Typography variant="h2" className="flex">
+            <Grid container>
+              <Grid md={11.7} sm={11.7}>
+                Files(16)
+              </Grid>
+              <Grid md={0.3} sm={0.3}>
+                <Tooltip title="File Settings" arrow>
+                  <IconButton onClick={handleFileSettings} size="small">
+                    <SettingsOutlinedIcon fontSize="small" />
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+            </Grid>
+          </Typography>
+
           <Divider />
           <div className="container">
             <File />
@@ -31,7 +70,20 @@ const Dashboard = () => {
               </Link>
             </div>
           </div>
-          <Typography variant="h2">Folder(18)</Typography>
+          <Typography variant="h2" className="flex">
+            <Grid container>
+              <Grid md={11.7} sm={11.7}>
+                Folder(18)
+              </Grid>
+              <Grid md={0.3} sm={0.3}>
+                <Tooltip title="Folder Settings" arrow>
+                  <IconButton onClick={handleFolderSettings} size="small">
+                    <SettingsOutlinedIcon fontSize="small" />
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+            </Grid>
+          </Typography>
           <Divider />
           <div className="container">
             <Folder />
@@ -43,6 +95,32 @@ const Dashboard = () => {
           </div>
         </Box>
       </div>
+      {isFile && (
+        <DialogModal
+          isOpen={isFile}
+          headingTitle="File Settings"
+          maxWidth={'xs'}
+          children={
+            <>
+              <div>File settings</div>
+            </>
+          }
+          handleClose={handleClose}
+        />
+      )}
+      {isFolder && (
+        <DialogModal
+          isOpen={isFolder}
+          headingTitle="Folder Settings"
+          maxWidth={'xs'}
+          children={
+            <>
+              <div>Folder settings</div>
+            </>
+          }
+          handleClose={handleClose}
+        />
+      )}
     </div>
   )
 }
