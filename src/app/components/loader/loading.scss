@@ -1,0 +1,26 @@
+.page-loading {
+  .loaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
+    .loaderWrapper {
+      background: white;
+      padding: 0.3125rem 0rem;
+      border-radius: 0.625rem;
+      .logoContainer {
+        margin-left: 4.6875rem;
+      }
+      .beatContainer {
+        text-align: center;
+      }
+    }
+  }
+}

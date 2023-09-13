@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { Suspense } from 'react'
+
 import { Navbar } from '@/app/components'
+import Loading from './loading'
 
 export default function DashboardLayout({
   children,
@@ -7,9 +9,9 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <div>
+    <Suspense fallback={<Loading />}>
       <Navbar />
       {children}
-    </div>
+    </Suspense>
   )
 }
