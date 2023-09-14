@@ -5,15 +5,32 @@ import './element.scss'
 interface FieldProps {
   label: string
   type?: string
+  isDisabled?: boolean
+  href?: string | undefined
 }
 
-const InputButton = ({ field }: { field: FieldProps }) => {
-  const { label } = field
+interface IButtonProps {
+  field: FieldProps
+  isLoading: boolean
+}
+
+const InputButton = ({ field, isLoading }: IButtonProps) => {
+  const { type, label, isDisabled, href } = field
+
+  const hrefValue = href || ''
   return (
     <div className="form-element">
       <div className="mt16">
-        <Button fullWidth size="medium" variant="contained" color="primary">
-          {label}
+        <Button
+          fullWidth
+          size="medium"
+          variant="contained"
+          color="primary"
+          type={type}
+          disabled={isLoading || isDisabled}
+          href={hrefValue}
+        >
+          {isLoading ? 'Loader' : label}
         </Button>
       </div>
     </div>

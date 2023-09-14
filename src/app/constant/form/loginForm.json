@@ -1,17 +1,25 @@
 [
   {
-    "id": "username",
     "fieldType": "input",
-    "label": "Username *",
     "type": "email",
-    "name": "username"
+    "id": "username",
+    "name": "username",
+    "label": "Username *",
+    "maxLength": 100,
+    "required": true,
+    "message": "Enter email address",
+    "validationMsg": "Invalid email address"
   },
   {
-    "id": "password",
     "fieldType": "input",
-    "label": "Password *",
     "type": "password",
-    "name": "password"
+    "id": "password",
+    "maxLength": 100,
+    "label": "Password *",
+    "name": "password",
+    "required": true,
+    "message": "Enter password",
+    "validationMsg": "Invalid password"
   },
   {
     "id": "linkField",

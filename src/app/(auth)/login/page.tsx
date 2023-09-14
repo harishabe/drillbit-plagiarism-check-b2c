@@ -4,14 +4,18 @@ import { useRouter } from 'next/navigation'
 import { Grid, Typography } from '@mui/material'
 import { DrillBitLogo } from 'public/assets'
 import { FormComponent } from '@/app/components'
+import { useForm } from 'react-hook-form'
 
 import './page.scss'
 import FormJson from '@/app/constant/form/loginForm.json'
 
 const Login = () => {
+  const { handleSubmit, control } = useForm()
+
   const router = useRouter()
 
-  const handleSubmit = () => {
+  const onSubmit = (data: any) => {
+    console.log('data', data)
     router.push('/dashboard')
   }
 
@@ -24,10 +28,14 @@ const Login = () => {
             <div className="image-contaner">
               <div className="form-container">
                 <Typography variant="h1">Welcome to DrillBit</Typography>
-                <form onClick={handleSubmit}>
+                <form onClick={handleSubmit(onSubmit)}>
                   {FormJson
                     ? FormJson.map((field) => (
-                        <FormComponent key={field.id} field={field} />
+                        <FormComponent
+                          key={field.id}
+                          field={field}
+                          control={control}
+                        />
                       ))
                     : null}
                 </form>
