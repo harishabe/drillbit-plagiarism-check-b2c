@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import InputLabel from '@mui/material/InputLabel'
-import { Control, FieldValues, useController } from 'react-hook-form'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
+import { Control, FieldValues, useController } from 'react-hook-form'
 
 interface FieldProps {
   label: string
-  name: string
+  name?: string
   options: Array<{ name: string }>
   size?: 'small' | 'medium'
   isDisabled?: boolean
   required?: boolean
+  message?: string
+  validationMsg?: string
 }
 
 interface InputAutoCompleteProps {
@@ -24,8 +26,12 @@ const InputAutoComplete: React.FC<InputAutoCompleteProps> = ({
   field,
   control,
 }) => {
+  const [selectedOption, setSelectedOption] = useState<{ name: string } | null>(
+    null
+  )
+
   const {
-    field: { onChange, value },
+    field: { onChange },
     fieldState: { error },
   } = useController({
     name: field.name || '',
@@ -33,19 +39,28 @@ const InputAutoComplete: React.FC<InputAutoCompleteProps> = ({
     rules: {
       required: field.required,
     },
+    defaultValue: '',
   })
+
+  useEffect(() => {
+    if (selectedOption) {
+      onChange(selectedOption.name)
+    } else {
+      onChange('')
+    }
+  }, [selectedOption, onChange])
 
   return (
     <>
       <InputLabel>{field.label}</InputLabel>
       <Autocomplete
+        style={{ marginTop: '-9px' }}
         options={field.options}
         getOptionLabel={(option) => option.name}
-        renderOption={(props, option, state) => (
-          <li {...props}>{option.name}</li>
-        )}
         size={field.size}
         disabled={field.isDisabled}
+        value={selectedOption}
+        onChange={(_, newValue) => setSelectedOption(newValue)}
         renderInput={(params) => (
           <TextField
             {...params}
@@ -53,11 +68,7 @@ const InputAutoComplete: React.FC<InputAutoCompleteProps> = ({
             id={field.name}
             margin="normal"
             error={!!error}
-            helperText={error && error.message}
-            onChange={(e) => {
-              onChange(e.target.value)
-            }}
-            value={value?.name || ''}
+            helperText={error && field.message}
           />
         )}
       />

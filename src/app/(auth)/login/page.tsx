@@ -28,16 +28,14 @@ const Login = () => {
             <div className="image-contaner">
               <div className="form-container">
                 <Typography variant="h1">Welcome to DrillBit</Typography>
-                <form onClick={handleSubmit(onSubmit)}>
-                  {FormJson
-                    ? FormJson.map((field) => (
-                        <FormComponent
-                          key={field.id}
-                          field={field}
-                          control={control}
-                        />
-                      ))
-                    : null}
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  {FormJson?.map((field) => (
+                    <FormComponent
+                      key={field.id}
+                      field={field}
+                      control={control}
+                    />
+                  ))}
                 </form>
               </div>
             </div>

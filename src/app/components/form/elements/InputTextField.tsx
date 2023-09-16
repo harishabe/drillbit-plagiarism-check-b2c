@@ -35,7 +35,11 @@ const InputTextField = ({ control, field }: InputTextFieldProps) => {
     rules: {
       required: field.required,
       validate: (value) => {
-        if (field.name === 'username' && !emailRegex.test(value)) {
+        if (
+          field.name === 'username' &&
+          value !== '' &&
+          !emailRegex.test(value)
+        ) {
           return (field.message = field.validationMsg)
         }
       },
