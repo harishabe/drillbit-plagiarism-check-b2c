@@ -1,0 +1,104 @@
+[
+  {
+    "fieldType": "input",
+    "type": "email",
+    "id": "username",
+    "name": "username",
+    "label": "Username *",
+    "maxLength": 100,
+    "required": true,
+    "message": "Enter email address",
+    "validationMsg": "Invalid email address"
+  },
+  {
+    "fieldType": "inputNumber",
+    "type": "phone",
+    "id": "phone",
+    "maxLength": 100,
+    "label": "Phone number *",
+    "name": "phone",
+    "required": true,
+    "message": "Enter phone",
+    "validationMsg": "Invalid phone"
+  },
+  {
+    "fieldType": "file",
+    "type": "file",
+    "id": "file",
+    "label": "Choose file *",
+    "name": "file",
+    "required": true,
+    "message": "Enter file",
+    "validationMsg": "Invalid file"
+  },
+  {
+    "fieldType": "input",
+    "type": "password",
+    "id": "password",
+    "maxLength": 100,
+    "label": "Password *",
+    "name": "password",
+    "required": true,
+    "message": "Enter password",
+    "validationMsg": "Invalid password"
+  },
+  {
+    "fieldType": "dropdown",
+    "type": "field",
+    "id": "field",
+    "options": [
+      {
+        "name": "first"
+      },
+      {
+        "name": "second"
+      },
+      {
+        "name": "third"
+      }
+    ],
+    "label": "Choose field *",
+    "name": "field",
+    "required": true,
+    "message": "Enter field",
+    "validationMsg": "Invalid field"
+  },
+  {
+    "fieldType": "datepicker",
+    "type": "date",
+    "id": "date",
+    "label": "Choose date *",
+    "name": "date",
+    "required": true,
+    "message": "Enter date",
+    "validationMsg": "Invalid date"
+  },
+  { 
+    "fieldType": "labelCaption",
+    "label": "Label caption"
+  },
+  {
+    "fieldType": "toggle",
+    "type": "toggle",
+    "id": "toggle",
+    "label": "Toggle *",
+    "name": "toggle",
+    "option": ["YES", "NO"],
+    "required": true,
+    "message": "Enter toggle",
+    "validationMsg": "Invalid toggle"
+  },
+  {
+    "id": "linkField",
+    "fieldType": "linkField",
+    "align": "right",
+    "path": "/forgot-password",
+    "label": "Forgot Password?"
+  },
+  {
+    "id": "signInButton",
+    "fieldType": "button",
+    "label": "Sign in",
+    "type": "submit"
+  }
+]

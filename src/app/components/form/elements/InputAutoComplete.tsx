@@ -1,31 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import InputLabel from '@mui/material/InputLabel'
-import TextField from '@mui/material/TextField'
-import Autocomplete from '@mui/material/Autocomplete'
+import { InputLabel, TextField, Autocomplete } from '@mui/material'
 import { Control, FieldValues, useController } from 'react-hook-form'
-
-interface FieldProps {
-  label: string
-  name?: string
-  options: Array<{ name: string }>
-  size?: 'small' | 'medium'
-  isDisabled?: boolean
-  required?: boolean
-  message?: string
-  validationMsg?: string
-}
+import './element.scss'
 
 interface InputAutoCompleteProps {
-  field: FieldProps
   control: Control<FieldValues>
-  options?: Array<{ name: string }>
-  renderOption: (option: { name: string }) => React.ReactNode
+  field: {
+    label: string
+    name?: string
+    options: Array<{ name: string }>
+    size?: 'small' | 'medium'
+    isDisabled?: boolean
+    required?: boolean
+    message?: string
+    validationMsg?: string
+  }
 }
 
-const InputAutoComplete: React.FC<InputAutoCompleteProps> = ({
-  field,
-  control,
-}) => {
+const InputAutoComplete = ({ field, control }: InputAutoCompleteProps) => {
   const [selectedOption, setSelectedOption] = useState<{ name: string } | null>(
     null
   )
@@ -53,25 +45,29 @@ const InputAutoComplete: React.FC<InputAutoCompleteProps> = ({
   return (
     <>
       <InputLabel>{field.label}</InputLabel>
-      <Autocomplete
-        style={{ marginTop: '-9px' }}
-        options={field.options}
-        getOptionLabel={(option) => option.name}
-        size={field.size}
-        disabled={field.isDisabled}
-        value={selectedOption}
-        onChange={(_, newValue) => setSelectedOption(newValue)}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            name={field.name}
-            id={field.name}
-            margin="normal"
-            error={!!error}
-            helperText={error && field.message}
+      <div className="form-element">
+        <div className="autocomplete">
+          <Autocomplete
+            options={field.options}
+            getOptionLabel={(option) => option.name}
+            disabled={field.isDisabled}
+            value={selectedOption}
+            onChange={(_, newValue) => setSelectedOption(newValue)}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                name={field.name}
+                id={field.name}
+                margin="normal"
+                fullWidth
+                size="small"
+                error={!!error}
+                helperText={error && field.message}
+              />
+            )}
           />
-        )}
-      />
+        </div>
+      </div>
     </>
   )
 }

@@ -4,6 +4,11 @@ import React from 'react'
 import InputTextField from './elements/InputTextField'
 import InputButton from './elements/InputButton'
 import InputAutoComplete from './elements/InputAutoComplete'
+import InputFileType from './elements/InputFileType'
+import InputNumberField from './elements/InputNumberField'
+import InputToggleButton from './elements/InputToggleButton'
+import InputDatePicker from './elements/InputDatePicker'
+import LabelCaption from './elements/LabelCaption'
 import LinkField from './elements/LinkField'
 import { Control, FieldValues } from 'react-hook-form'
 
@@ -24,13 +29,18 @@ interface IFormProps {
   isDisabled?: boolean
   href?: string
   options?: Array<{ name: string }>
+  option: string[] | ['']
+  dateLabel?: string
+  nextDate?: boolean
+  prevDate?: boolean
+  minDate?: Date | undefined
+  maxDate?: Date | undefined
 }
 
 interface IFormComponentProps {
   control: Control<FieldValues>
   field: IFormProps
   isLoading?: boolean
-  options?: Array<{ name: string }>
 }
 
 interface FieldProps {
@@ -56,12 +66,7 @@ const mapToFieldProps = (formProps: IFormProps): FieldProps => {
   }
 }
 
-const FormComponent = ({
-  control,
-  field,
-  isLoading,
-  options,
-}: IFormComponentProps) => {
+const FormComponent = ({ control, field, isLoading }: IFormComponentProps) => {
   const { fieldType, id, ...inputProps } = field
   const fieldProps = mapToFieldProps(field)
   switch (fieldType) {
@@ -71,15 +76,18 @@ const FormComponent = ({
       return <InputButton field={inputProps} isLoading={isLoading || false} />
     case 'linkField':
       return <LinkField field={inputProps} />
+    case 'file':
+      return <InputFileType field={field} control={control} />
+    case 'inputNumber':
+      return <InputNumberField field={field} control={control} />
+    case 'toggle':
+      return <InputToggleButton field={field} control={control} />
+    case 'datepicker':
+      return <InputDatePicker field={field} control={control} />
+    case 'labelCaption':
+      return <LabelCaption field={field} />
     case 'dropdown':
-      return (
-        <InputAutoComplete
-          field={fieldProps}
-          control={control}
-          options={options}
-          renderOption={(option) => <div>{option.name}</div>}
-        />
-      )
+      return <InputAutoComplete field={fieldProps} control={control} />
     default:
       return null
   }

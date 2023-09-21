@@ -2,15 +2,13 @@ import React from 'react'
 import Button from '@mui/material/Button'
 import './element.scss'
 
-interface FieldProps {
-  label: string
-  type?: string
-  isDisabled?: boolean
-  href?: string | undefined
-}
-
 interface IButtonProps {
-  field: FieldProps
+  field: {
+    label: string
+    type?: string
+    isDisabled?: boolean
+    href?: string | undefined
+  }
   isLoading: boolean
 }
 

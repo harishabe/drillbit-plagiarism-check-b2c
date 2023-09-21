@@ -1,12 +1,47 @@
 .form-element {
   .label {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
-    line-height: 24px;
+    line-height: 1.5rem;
     font-style: normal;
     color: #000;
   }
   .mt16 {
     margin-top: 1rem;
   }
+  .autocomplete {
+    margin-top: -0.688rem;
+  }
+  .datepicker {
+    .mt-5 {
+      margin-top: 0.313rem;
+    }
+    .p-12 {
+      padding: 0.75rem;
+    }
+  }
+  .file {
+    .mt-5 {
+      margin-top: 0.313rem;
+    }
+    .p-12-14 {
+      padding: 0.75rem 0.875rem;
+      font-weight: 500;
+    }
+    .text {
+      padding: 0.75rem 0.875rem;
+    }
+  }
+  .label-caption {
+    margin-bottom: 0.625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .link-field {
+    text-align: right;
+  }
+}
+.toggle {
+  margin-top: 0.938rem;
 }
