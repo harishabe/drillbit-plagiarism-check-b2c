@@ -12,6 +12,12 @@ a {
   text-decoration: none;
 }
 
+.css-1h51icj-MuiAutocomplete-root 
+.MuiOutlinedInput-root.MuiInputBase-sizeSmall 
+.MuiAutocomplete-input {
+    padding: 5px 5px 5px 5px;
+}
+
 /** font **/
 
 @font-face {
