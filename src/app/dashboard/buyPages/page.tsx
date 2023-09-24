@@ -36,12 +36,60 @@ const BuyPages = () => {
     id: 1,
     pages: '25 pages',
     amount: 5,
-    currency: '$',
+    currency: 'INR',
   })
 
   const handlePrice = (e: MouseEvent<HTMLElement>, price: ISelected) => {
     e.preventDefault()
     setSelectedPrice(price)
+  }
+
+  const initPayment = (data) => {
+    const options = {
+      key: 'rzp_test_qUjQJgbOOOxJpa',
+      amount: data.amount,
+      currency: data.currency,
+      name: 'Harisa',
+      description: 'Test Transaction',
+      order_id: data.id,
+      handler: async (response) => {
+        console.log('after-paynow', response)
+        try {
+          const verifyUrl = 'http://localhost:8081/api/payment/verify'
+          const { data } = await fetch(verifyUrl, {
+            method: 'POST',
+            body: response,
+          })
+          console.log(data)
+        } catch (error) {
+          console.log('initPayment', error)
+        }
+      },
+      theme: {
+        color: '#3399cc',
+      },
+    }
+    const rzp1 = new window.Razorpay(options)
+    rzp1.open()
+  }
+
+  const handlePayment = async () => {
+    try {
+      const orderUrl =
+        'https://onlineuat.drillbitplagiarismcheck.com:8080/razorpay/createorder'
+      const { data } = await fetch(orderUrl, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ amount: selectedPrice.amount }),
+      })
+      console.log('handlePayment', data)
+      initPayment(data.data)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -64,8 +112,8 @@ const BuyPages = () => {
           </Grid>
           <Grid item xs={5}>
             <OrderSummary priceDetails={selectedPrice} />
-            <Button variant="contained" fullWidth>
-              Buy
+            <Button variant="contained" fullWidth onClick={handlePayment}>
+              Buy Now
             </Button>
           </Grid>
         </Grid>

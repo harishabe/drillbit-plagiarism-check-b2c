@@ -10,8 +10,76 @@
     -webkit-box-pack: center;
     justify-content: center;
     .form-container {
-      width: 29%;
-      padding: 6%;
+      width: 65%;
+      .form {
+        padding: 10%;
+      }
+      .login-placeholder {
+        margin-bottom: 1rem;
+        color: #092040;
+        font-weight: 800;
+        font-size: 1.8rem;
+      }
+      .social-icon {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        Button {
+          border: 0.0625rem solid #c8cad0;
+          color: #454745;
+        }
+        .btn {
+          padding: 0.0625rem 0.75rem !important;
+        }
+        .btn:hover {
+          border-color: #3672ff;
+          background-color: #3672ff !important;
+          color: #fff !important;
+        }
+      }
+      .or-title::before {
+        content: '';
+        display: block;
+        width: 47%;
+        height: 0.5px;
+        background: #d1d1d1;
+        top: 50%;
+        left: 0;
+        position: absolute;
+      }
+      .or-title::after {
+        content: '';
+        display: block;
+        width: 47%;
+        height: 0.5px;
+        background: #d1d1d1;
+        top: 50%;
+        right: 0;
+        position: absolute;
+      }
+      .or-title {
+        margin: 20px auto;
+        text-align: center;
+        color: #00000099;
+        font-weight: 700;
+        font-size: 1rem;
+        position: relative;
+      }
+      .account-container {
+        padding-top: 1rem;
+        text-align: center;
+        .account-title {
+          color: #00000099;
+          font-size: 0.875rem;
+          font-weight: 600;
+        }
+        .create-account {
+          color: #3672ff;
+          font-size: 13px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+      }
     }
     margin-top: 1rem;
   }

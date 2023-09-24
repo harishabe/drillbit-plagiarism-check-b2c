@@ -1,10 +1,12 @@
 'use client'
 
 import React, { Suspense } from 'react'
+import { Provider } from 'react-redux'
 import './globals.css'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme/theme'
 import Loading from './loading'
+import { store } from '@/app/redux/store'
 
 export default function RootLayout({
   children,
@@ -19,7 +21,9 @@ export default function RootLayout({
       />
       <body>
         <Suspense fallback={<Loading />}>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          <Provider store={store}>
+            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          </Provider>
         </Suspense>
       </body>
     </html>

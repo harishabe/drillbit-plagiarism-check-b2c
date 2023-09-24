@@ -1,0 +1,43 @@
+[
+  {
+    "id": "username",
+    "fieldType": "input",
+    "label": "Name *",
+    "type": "email",
+    "name": "username"
+  },
+  {
+    "id": "useremail",
+    "fieldType": "input",
+    "label": "Email *",
+    "type": "email",
+    "name": "username"
+  },
+  {
+    "id": "password",
+    "fieldType": "input",
+    "label": "Password *",
+    "type": "password",
+    "name": "password"
+  },
+  {
+    "id": "phone",
+    "fieldType": "input",
+    "label": "Mobile number*",
+    "type": "password",
+    "name": "confirmPwd"
+  },
+  {
+    "id": "country",
+    "fieldType": "input",
+    "label": "Country*",
+    "type": "text",
+    "name": "country"
+  },
+  {
+    "id": "signInButton",
+    "fieldType": "button",
+    "label": "Create account",
+    "type": "submit"
+  }
+]

@@ -13,7 +13,7 @@ const InputTextField = ({ field }: { field: IFieldProps }) => {
     <div>
       <InputLabel>{label}</InputLabel>
       <TextField
-        style={{ marginTop: '5px' }}
+        style={{ marginTop: '10px' }}
         fullWidth
         margin="normal"
         size="small"
