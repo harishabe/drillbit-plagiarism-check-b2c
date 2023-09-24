@@ -338,3 +338,11 @@ export const accountDetails = [
     ],
   },
 ]
+
+export const handleKeyPress = (event: any) => {
+  const keyCode = event.keyCode || event.which
+  const keyValue = String.fromCharCode(keyCode)
+  if (/[eE]/.test(keyValue)) {
+    event.preventDefault()
+  }
+}

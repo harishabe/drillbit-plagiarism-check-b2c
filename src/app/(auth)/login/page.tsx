@@ -9,6 +9,7 @@ import {
   LinkedInLogo,
 } from 'public/assets'
 import { FormComponent } from '@/app/components'
+import { useForm } from 'react-hook-form'
 
 import './page.scss'
 import FormJson from '@/app/constant/form/loginForm.json'
@@ -19,11 +20,13 @@ import {
 } from '@/app/redux/api/authApi'
 
 const Login = () => {
+  const { handleSubmit, control } = useForm()
+
   const router = useRouter()
   const [loginUser] = useLoginUserMutation()
   const [registerUser] = useRegisterUserMutation()
 
-  const handleSubmit = async () => {
+  const onSubmit = async () => {
     await loginUser({
       username: 'drillbit.open@gmail.com',
       password: 'Drillbit123@',
@@ -57,7 +60,7 @@ const Login = () => {
                   <div className="login-placeholder">
                     Log in to your Account
                   </div>
-                  <form onClick={handleSubmit}>
+                  <form onSubmit={handleSubmit(onSubmit)}>
                     {FormJson
                       ? FormJson.map((field) => (
                           <FormComponent key={field.id} field={field} />
