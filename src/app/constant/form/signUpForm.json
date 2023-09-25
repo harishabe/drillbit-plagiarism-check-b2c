@@ -1,31 +1,47 @@
 [
   {
+    "fieldType": "input",
+    "type": "text",
     "id": "username",
-    "fieldType": "input",
-    "label": "Name *",
-    "type": "email",
-    "name": "username"
+    "name": "username",
+    "label": "Username *",
+    "maxLength": 100,
+    "required": true,
+    "message": "Enter email address",
+    "validationMsg": "Invalid email address"
   },
   {
-    "id": "useremail",
     "fieldType": "input",
+    "type": "email",
+    "id": "email",
+    "name": "email",
     "label": "Email *",
-    "type": "email",
-    "name": "username"
+    "maxLength": 100,
+    "required": true,
+    "message": "Enter email address",
+    "validationMsg": "Invalid email address"
   },
   {
+    "fieldType": "input",
+    "type": "password",
     "id": "password",
-    "fieldType": "input",
+    "maxLength": 100,
     "label": "Password *",
-    "type": "password",
-    "name": "password"
+    "name": "password",
+    "required": true,
+    "message": "Enter password",
+    "validationMsg": "Invalid password"
   },
   {
-    "id": "phone",
     "fieldType": "input",
-    "label": "Mobile number*",
     "type": "password",
-    "name": "confirmPwd"
+    "id": "password",
+    "maxLength": 100,
+    "label": "Password *",
+    "name": "password",
+    "required": true,
+    "message": "Enter password",
+    "validationMsg": "Invalid password"
   },
   {
     "id": "country",

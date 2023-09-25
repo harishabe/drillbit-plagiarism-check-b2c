@@ -1,6 +1,7 @@
 'use client'
+
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useForm } from 'react-hook-form'
 import { Grid } from '@mui/material'
 import { DrillBitLogo } from 'public/assets'
 import { FormComponent } from '@/app/components'
@@ -8,36 +9,14 @@ import { FormComponent } from '@/app/components'
 import './../login/page.scss'
 import FormJson from '@/app/constant/form/signUpForm.json'
 
-import {
-  useLoginUserMutation,
-  useRegisterUserMutation,
-} from '@/app/redux/api/authApi'
+import { useRegisterUserMutation } from '@/app/redux/api/authApi'
 
 const SignUp = () => {
-  const router = useRouter()
-  const [loginUser] = useLoginUserMutation()
+  const { handleSubmit, control } = useForm()
   const [registerUser] = useRegisterUserMutation()
 
-  const handleSubmit = async () => {
-    await loginUser({
-      username: 'drillbit.open@gmail.com',
-      password: 'Drillbit123@',
-    })
-
-    router.push('/dashboard')
-  }
-
-  const handleSignUp = () => {
-    router.push('/sign-up')
-
-    // registerUser({
-    //   userName: 'drillbit',
-    //   userEmail: 'drillbit.open@gmail.com',
-    //   pswd: '54321',
-    //   ph_no: '88762311211',
-    //   address: 'bangalore',
-    //   country: 'India',
-    // })
+  const onSubmit = (data: any) => {
+    registerUser(data)
   }
 
   return (
@@ -49,10 +28,15 @@ const SignUp = () => {
             <div className="image-contaner">
               <div className="form-container">
                 <div className="login-placeholder">Create your account</div>
-                <form onClick={handleSubmit}>
+                <form onClick={handleSubmit(onSubmit)}>
                   {FormJson
                     ? FormJson.map((field) => (
-                        <FormComponent key={field.id} field={field} />
+                        <FormComponent
+                          key={field.id}
+                          field={field}
+                          control={control}
+                          isLoading={false}
+                        />
                       ))
                     : null}
                 </form>

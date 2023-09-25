@@ -1,6 +1,8 @@
 'use client'
 
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useForm } from 'react-hook-form'
 import { Grid, Button } from '@mui/material'
 import {
   DrillBitLogo,
@@ -9,43 +11,24 @@ import {
   LinkedInLogo,
 } from 'public/assets'
 import { FormComponent } from '@/app/components'
-import { useForm } from 'react-hook-form'
 
 import './page.scss'
 import FormJson from '@/app/constant/form/loginForm.json'
 
-import {
-  useLoginUserMutation,
-  useRegisterUserMutation,
-} from '@/app/redux/api/authApi'
+import { useLoginUserMutation } from '@/app/redux/api/authApi'
 
 const Login = () => {
-  const { handleSubmit, control } = useForm()
-
   const router = useRouter()
   const [loginUser] = useLoginUserMutation()
-  const [registerUser] = useRegisterUserMutation()
 
-  const onSubmit = async () => {
-    await loginUser({
-      username: 'drillbit.open@gmail.com',
-      password: 'Drillbit123@',
-    })
+  const { handleSubmit, control } = useForm({
+    mode: 'all',
+  })
+
+  const onSubmit = async (data: any) => {
+    await loginUser(data)
 
     router.push('/dashboard')
-  }
-
-  const handleSignUp = () => {
-    router.push('/sign-up')
-
-    // registerUser({
-    //   userName: 'drillbit',
-    //   userEmail: 'drillbit.open@gmail.com',
-    //   pswd: '54321',
-    //   ph_no: '88762311211',
-    //   address: 'bangalore',
-    //   country: 'India',
-    // })
   }
 
   return (
@@ -63,7 +46,12 @@ const Login = () => {
                   <form onSubmit={handleSubmit(onSubmit)}>
                     {FormJson
                       ? FormJson.map((field) => (
-                          <FormComponent key={field.id} field={field} />
+                          <FormComponent
+                            key={field.id}
+                            field={field}
+                            control={control}
+                            isLoading={false}
+                          />
                         ))
                       : null}
                   </form>
@@ -96,13 +84,9 @@ const Login = () => {
                     <span className="account-title">
                       Dont't have an account?{' '}
                     </span>
-                    <span
-                      className="create-account"
-                      role="button"
-                      onClick={handleSignUp}
-                    >
+                    <Link className="create-account" href="/sign-up">
                       Create an account
-                    </span>
+                    </Link>
                   </div>
                 </div>
               </div>

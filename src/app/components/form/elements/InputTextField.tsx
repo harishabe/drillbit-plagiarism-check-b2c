@@ -1,6 +1,8 @@
-import React from 'react'
+'use client'
+
+import React, { useState, useEffect } from 'react'
 import { TextField, InputLabel } from '@mui/material'
-import { Control, FieldValues, useController } from 'react-hook-form'
+import { Control, FieldValues, Controller } from 'react-hook-form'
 import './element.scss'
 
 interface InputTextFieldProps {
@@ -23,54 +25,64 @@ interface InputTextFieldProps {
 }
 
 const InputTextField = ({ control, field }: InputTextFieldProps) => {
-  const emailRegex = /^[A-Z0-9._%+-]{2,64}@[A-Z0-9.-]{2,255}\.[A-Z0-9-]{2,63}$/i
+  const [regex, setRegex] = useState(/^/)
 
-  const {
-    field: { onChange, onBlur, value },
-    fieldState: { error },
-  } = useController({
-    name: field.name || '',
-    control,
-    rules: {
-      required: field.required,
-      validate: (value) => {
-        if (
-          field.name === 'username' &&
-          value !== '' &&
-          !emailRegex.test(value)
-        ) {
-          return (field.message = field.validationMsg)
-        }
-      },
-    },
-  })
+  useEffect(() => {
+    if (field.name === 'newPassword') {
+      setRegex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)
+    }
+    if (field.name === 'confirmPassword') {
+      setRegex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)
+    }
+    if (field.name === 'email' || field.name === 'adminEmail') {
+      setRegex(/^[A-Z0-9._%+-]{2,64}@[A-Z0-9.-]{2,255}\.[A-Z0-9-]{2,63}$/i)
+    }
+  }, [field])
 
   return (
     <div>
       <InputLabel>{field.label}</InputLabel>
-      <div className="form-element">
-        <div className="file">
-          <TextField
-            className="mt-5"
-            fullWidth
-            margin="normal"
-            size="small"
-            variant="outlined"
-            type={field.type}
-            name={field.name}
-            onChange={onChange}
-            onBlur={onBlur}
-            error={!!error}
-            helperText={error ? field.message : field.info}
-            value={value}
-            inputProps={{
-              maxLength: field.maxLength,
-              minLength: field.minLength,
-              className: 'text',
-            }}
-          />
-        </div>
-      </div>
+      <Controller
+        name={field.name ?? ''}
+        control={control}
+        defaultValue=""
+        render={({
+          field: { onChange, onBlur, value },
+          fieldState: { error },
+        }) => {
+          return (
+            <TextField
+              style={{ marginTop: '5px' }}
+              margin="normal"
+              type={field.type}
+              onChange={onChange}
+              onBlur={onBlur}
+              error={!!error}
+              value={value}
+              fullWidth
+              name={field.name}
+              id={field.name}
+              variant="outlined"
+              helperText={error ? error.message : field.info}
+              FormHelperTextProps={{ classes: { root: '' } }}
+              inputProps={{
+                maxLength: field.maxLength,
+                minLength: field.minLength,
+                style: {
+                  padding: '12px 14px',
+                },
+              }}
+            />
+          )
+        }}
+        rules={{
+          required: field.required,
+          pattern: {
+            value: regex,
+            message: field.validationMsg ?? '',
+          },
+        }}
+      />
     </div>
   )
 }
