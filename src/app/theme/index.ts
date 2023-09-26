@@ -81,6 +81,13 @@ const drillBitTheme: IDrillBitTheme = {
         },
       },
     },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          marginLeft: '0rem',
+        },
+      },
+    },
   },
 }
 

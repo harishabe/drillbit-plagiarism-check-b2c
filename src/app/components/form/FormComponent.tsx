@@ -30,7 +30,7 @@ interface IFormProps {
   isDisabled?: boolean
   href?: string
   options?: Array<{ name: string }>
-  option: string[] | ['']
+  option?: string[] | ['']
   dateLabel?: string
   nextDate?: boolean
   prevDate?: boolean

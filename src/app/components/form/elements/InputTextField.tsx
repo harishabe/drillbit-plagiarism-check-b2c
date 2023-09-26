@@ -1,58 +1,49 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { TextField, InputLabel } from '@mui/material'
+import React from 'react'
 import { Control, FieldValues, Controller } from 'react-hook-form'
+
+import { TextField, InputLabel } from '@mui/material'
+
 import './element.scss'
+
+interface IRules {
+  [key: string]:
+    | number
+    | string
+    | boolean
+    | { [key: string]: RegExp | string | number | boolean }
+}
 
 interface InputTextFieldProps {
   control: Control<FieldValues>
   field: {
     id: string
     fieldType: string
-    label: string
     type?: string
     name?: string
-    maxLength?: number
-    minLength?: number
-    required?: boolean
-    message?: string
-    validationMsg?: string
+    label: string
     info?: string
-    path?: string
-    align?: string
+    rules?: IRules
   }
 }
 
 const InputTextField = ({ control, field }: InputTextFieldProps) => {
-  const [regex, setRegex] = useState(/^/)
-
-  useEffect(() => {
-    if (field.name === 'newPassword') {
-      setRegex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)
-    }
-    if (field.name === 'confirmPassword') {
-      setRegex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)
-    }
-    if (field.name === 'email' || field.name === 'adminEmail') {
-      setRegex(/^[A-Z0-9._%+-]{2,64}@[A-Z0-9.-]{2,255}\.[A-Z0-9-]{2,63}$/i)
-    }
-  }, [field])
-
   return (
-    <div>
+    <div className="form-element">
       <InputLabel>{field.label}</InputLabel>
       <Controller
         name={field.name ?? ''}
         control={control}
         defaultValue=""
+        rules={field.rules}
         render={({
           field: { onChange, onBlur, value },
           fieldState: { error },
         }) => {
           return (
             <TextField
-              style={{ marginTop: '5px' }}
+              className="mt-10"
               margin="normal"
               type={field.type}
               onChange={onChange}
@@ -64,23 +55,13 @@ const InputTextField = ({ control, field }: InputTextFieldProps) => {
               id={field.name}
               variant="outlined"
               helperText={error ? error.message : field.info}
-              FormHelperTextProps={{ classes: { root: '' } }}
               inputProps={{
-                maxLength: field.maxLength,
-                minLength: field.minLength,
                 style: {
-                  padding: '12px 14px',
+                  padding: '0.75rem 0.875rem',
                 },
               }}
             />
           )
-        }}
-        rules={{
-          required: field.required,
-          pattern: {
-            value: regex,
-            message: field.validationMsg ?? '',
-          },
         }}
       />
     </div>
